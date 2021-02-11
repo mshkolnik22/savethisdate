@@ -8,6 +8,7 @@ import "../assets/scss/main.scss"
 import RegistrationForm from "./registration/RegistrationForm"
 import SignInForm from "./authentication/SignInForm"
 import TopBar from "./layout/TopBar"
+import EventShowPage from "./EventShowPage"
 import EventsPage from "./EventsPage"
 
 const App = (props) => {
@@ -34,9 +35,14 @@ const App = (props) => {
             </Link>
           </div>
         </Route>
-        <Route exact path="/events" component={EventsPage} />
+        <Route exact path="/events">
+           <EventsPage user={currentUser} />
+        </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/events/:id">
+          <EventShowPage user={currentUser} />
+        </Route>
       </Switch>
     </Router>
   )
