@@ -21,6 +21,7 @@ eventsRouter.get("/:id", async (req, res) => {
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)
+    //event.invites = await event.$relatedQuery("invites")
     if (event) {
       res.status(200).json({ event: event })
     } else {
@@ -33,10 +34,11 @@ eventsRouter.get("/:id", async (req, res) => {
 })
 
 eventsRouter.post("/", async (req, res) => {
+ 
   const { body } = req
   const formInput = cleanUserInput(body)
   const { title, typeOfEvent, description, hostedBy, hostEmail, image, linkURL, location, date, time, reminder } = formInput
-
+  //debugger
   try {
     const newEvent = await Event.query().insertAndFetch({
       title, 
@@ -51,9 +53,10 @@ eventsRouter.post("/", async (req, res) => {
       time, 
       reminder,
     })
-
+    debugger
     return res.status(201).json({ event: newEvent })
   } catch (error) {
+    debugger
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data })
     } else {
