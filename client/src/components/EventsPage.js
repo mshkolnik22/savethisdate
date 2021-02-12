@@ -8,7 +8,7 @@ const EventsPage = (props) => {
   const [events, setEvents] = useState([])
   const [errors, setErrors] = useState([])
 
-  const user = props.user
+  //const user = props.user
 
   const getEvents = async () => {
     try {
@@ -30,6 +30,7 @@ const EventsPage = (props) => {
   }, [])
 
   const addEvent = async (eventPayload) => {
+    //debugger
     try {
       const response = await fetch("/api/v1/events", {
         method: "POST",
@@ -50,6 +51,7 @@ const EventsPage = (props) => {
         }
       } else {
         const body = await response.json()
+        //debugger
         const updatedEvents = events.concat(body.event)
         setEvents(updatedEvents)
       }
@@ -85,7 +87,7 @@ const EventsPage = (props) => {
           <ul>{eventListItems}</ul>
         </div>
         <div className="form-right">
-         <h3>Add New trail:</h3>
+         <h3>Add New event:</h3>
          <ErrorList errors={errors} />
          <EventForm addEvent={addEvent} />
         </div>

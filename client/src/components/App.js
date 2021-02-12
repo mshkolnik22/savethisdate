@@ -31,7 +31,7 @@ const App = (props) => {
           <div>
             <h2>Welcome to Save This Date!</h2>
             <Link to="/events">
-              <a>Add Your Event</a>
+              Add Your Event
             </Link>
           </div>
         </Route>

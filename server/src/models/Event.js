@@ -4,7 +4,33 @@ class Event extends Model {
   static get tableName() {
     return "events"
   }
+  static get relationMappings() {
+    const { Invite, User } = require("./index")
 
+    return {
+      invites: {
+        relation: Model.HasManyRelation,
+        modelClass: Invite,
+        join: {
+          from: "events.id",
+          to: "invites.eventId",
+        },
+      },
+      // update that Event belongs to User
+      users: {
+        relation: Model.ManyToManyRelation,
+        modelClass: User,
+        join: {
+          from: "events.id",
+          through: {
+            from: "invites.eventId",
+            to: "invites.userId",
+          },
+          to: "users.id",
+        },
+      },
+    }
+  }
   static get jsonSchema() {
     return {
       type: "object",
@@ -17,8 +43,8 @@ class Event extends Model {
         hostEmail: { type: "string" },
         linkURL: { type: "string" },
         location: { type: "string" },
-        date: { type: "string", format: "date" },
-        time: { type: "string", format: "time" },
+        date: { type: "string" },
+        time: { type: "string" },
         reminder: { type: ["string", "integer"] },
       },
     }
