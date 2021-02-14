@@ -99,11 +99,11 @@ const EventShowPage = (props) => {
   return (
     <div className="event-bg-img-show">
       <ul>
-        <li>First Name: {event.name}</li>
-        <li>Last Name: {event.length}</li>
-        <li>Email: {event.description}</li>
-        <li>Phone: {event.location}</li>
-        <li>RSVP Status: {event.estimateTime}</li>
+        <li>First Name: {event.firstName}</li>
+        <li>Last Name: {event.lastName}</li>
+        <li>Email: {event.email}</li>
+        <li>Phone: {event.phone}</li>
+        <li>RSVP Status: {event.rsvp}</li>
       </ul>
       <div>
         <ErrorList errors={errors} />
@@ -117,3 +117,6 @@ const EventShowPage = (props) => {
 
 
 export default EventShowPage
+ 
+
+

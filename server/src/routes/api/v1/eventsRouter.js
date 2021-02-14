@@ -23,6 +23,7 @@ eventsRouter.get("/:id", async (req, res) => {
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)
+    //event.invites = await event.$relatedQuery("invites")
     if (event) {
       res.status(200).json({ event: event })
     } else {
@@ -35,7 +36,7 @@ eventsRouter.get("/:id", async (req, res) => {
 })
 
 eventsRouter.post("/", async (req, res) => {
-  console.log("inside post")
+ 
   const { body } = req
   console.log("body")
   console.log(body)
