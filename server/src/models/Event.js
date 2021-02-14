@@ -5,6 +5,21 @@ class Event extends Model {
     return "events"
   }
 
+  static get relationMappings() {
+    const { Guest } = require("./index")
+
+    return {
+      guests: {
+        relation: Model.HasManyRelation,
+        modelClass: Guest,
+        join: {
+          from: "guests.id",
+          to: "guests.eventId",
+        },
+      },
+    }
+  }
+
   static get jsonSchema() {
     return {
       type: "object",
@@ -17,8 +32,8 @@ class Event extends Model {
         hostEmail: { type: "string" },
         linkURL: { type: "string" },
         location: { type: "string" },
-        date: { type: "string", format: "date" },
-        time: { type: "string", format: "time" },
+        date: { type: "string" },
+        time: { type: "string" },
         reminder: { type: ["string", "integer"] },
       },
     }

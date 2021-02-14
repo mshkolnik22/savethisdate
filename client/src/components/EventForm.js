@@ -1,5 +1,6 @@
 import React, { useState } from "react"
- 
+import DatePicker from "react-datepicker";
+
 const EventForm = (props) => {
  const [eventRecord, setEventRecord] = useState({
    title: "",
@@ -23,7 +24,7 @@ const EventForm = (props) => {
  
  const handleSubmit = (event) => {
    event.preventDefault()
-   props.addTrail(eventRecord)
+   props.addEvent(eventRecord)
    clearForm()
  }
  
@@ -49,7 +50,6 @@ const EventForm = (props) => {
          <label htmlFor="title">
            Event Title:
            <input
-             class="textboxstyle"
              id="title"
              type="text"
              name="title"
@@ -59,17 +59,20 @@ const EventForm = (props) => {
            />
          </label>
  
-         <label htmlFor="typeOfEvent">
-           Type of the Event:
-           {/* <input
-             class="textboxstyle"
-             id="typeOfEvent"
+         <label htmlFor="description">
+           Event Description:
+           <input
+             id="description"
              type="text"
-             name="typeOfEvent"
-             placeholder="Type of the Event"
+             name="description"
+             placeholder="Description of the Event"
              onChange={handleChange}
-             value={eventRecord.typeOfEvent}
-           /> */}
+             value={eventRecord.description}
+           />
+         </label>
+
+         <label htmlFor="typeOfEvent">
+          Type of the Event:
           <select
             name="typeOfEvent"
             onChange={handleChange}
@@ -87,14 +90,13 @@ const EventForm = (props) => {
               <option value="9" >Book Club</option>
               <option value="10" >Social</option>
               <option value="11" >Family Gathering</option>
-              <option value="11" >Other</option>
+              <option value="12" >Other</option>
             </select>
          </label>
  
          <label htmlFor="hostedBy">
            Hosted By:
            <input
-             class="textboxstyle"
              id="hostedBy"
              type="text"
              name="hostedBy"
@@ -107,20 +109,18 @@ const EventForm = (props) => {
          <label htmlFor="hostEmail">
            Contact information of the Host:
            <input
-             class="textboxstyle"
              id="hostEmail"
              type="text"
              name="hostEmail"
              placeholder="Contact information of the Host"
              onChange={handleChange}
-             value={eventRecord.hostedEmail}
+             value={eventRecord.hostEmail}
            />
          </label>
  
          <label htmlFor="linkURL">
            Virtual Event Link:
            <input
-             class="textboxstyle"
              id="linkURL"
              type="text"
              name="linkURL"
@@ -133,7 +133,6 @@ const EventForm = (props) => {
          <label htmlFor="location">
            Location:
            <input
-             class="textboxstyle"
              id="location"
              type="text"
              name="location"
@@ -146,7 +145,6 @@ const EventForm = (props) => {
          <label htmlFor="date">
            Date of the Event:
            <input
-             class="textboxstyle"
              id="date"
              type="text"
              name="date"
@@ -158,15 +156,6 @@ const EventForm = (props) => {
  
          <label htmlFor="time">
            Start time of the Event:
-           {/* <input
-             class="textboxstyle"
-             id="time"
-             type="text"
-             name="time"
-             placeholder="Event Start Time"
-             onChange={handleChange}
-             value={eventRecord.time}
-           /> */}
             <select
             name="time"
             onChange={handleChange}
@@ -220,15 +209,6 @@ const EventForm = (props) => {
               <option value="60" >2 months</option>
               <option value="90" >3 months</option>
             </select>
-           {/* <input
-             class="textboxstyle"
-             id="reminder"
-             type="text"
-             name="reminder"
-             placeholder="Number of days or months for the Reminder"
-             onChange={handleChange}
-             value={eventRecord.reminder}
-           /> */}
          </label>
  
          <div>

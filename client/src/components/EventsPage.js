@@ -13,6 +13,7 @@ const EventsPage = (props) => {
   const getEvents = async () => {
     try {
       const response = await fetch("/api/v1/events")
+  
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
@@ -85,7 +86,7 @@ const EventsPage = (props) => {
           <ul>{eventListItems}</ul>
         </div>
         <div className="form-right">
-         <h3>Add New trail:</h3>
+         <h3>Add New Event:</h3>
          <ErrorList errors={errors} />
          <EventForm addEvent={addEvent} />
         </div>

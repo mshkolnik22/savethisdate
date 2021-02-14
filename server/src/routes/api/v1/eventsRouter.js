@@ -9,6 +9,7 @@ import cleanUserInput from "../../../services/cleanUserInput.js"
 const eventsRouter = new express.Router()
 
 eventsRouter.get("/", async (req, res) => {
+  console.log("inside first get")
   try {
     const events = await Event.query()
     return res.status(200).json({ events: events })
@@ -18,6 +19,7 @@ eventsRouter.get("/", async (req, res) => {
 })
 
 eventsRouter.get("/:id", async (req, res) => {
+  console.log("inside /:id")
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)
@@ -33,10 +35,16 @@ eventsRouter.get("/:id", async (req, res) => {
 })
 
 eventsRouter.post("/", async (req, res) => {
+  console.log("inside post")
   const { body } = req
+  console.log("body")
+  console.log(body)
   const formInput = cleanUserInput(body)
-  const { title, typeOfEvent, description, hostedBy, hostEmail, image, linkURL, location, date, time, reminder } = formInput
-
+  console.log("formInput")
+  console.log(formInput)
+  const { title, typeOfEvent, description, hostedBy, hostEmail, linkURL, location, date, time, reminder } = formInput
+  console.log("before insert")
+  console.log([title, typeOfEvent, description, hostedBy, hostEmail, linkURL, location, date, time, reminder])
   try {
     const newEvent = await Event.query().insertAndFetch({
       title, 
@@ -44,16 +52,17 @@ eventsRouter.post("/", async (req, res) => {
       description, 
       hostedBy, 
       hostEmail, 
-      image, 
       linkURL, 
       location, 
       date, 
       time, 
       reminder,
     })
-
+    console.log("after insert")
     return res.status(201).json({ event: newEvent })
   } catch (error) {
+    console.log("error")
+    console.log(error)
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data })
     } else {
