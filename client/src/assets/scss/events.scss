@@ -1,0 +1,207 @@
+body,
+html {
+  height: 100%;
+}
+
+button:active {
+  background-color: $navy;
+  border-color: $white;
+  border: 5px;
+}
+
+p {
+  color: $white;
+  font-size: 1.4em;
+}
+
+a {
+  color: #4b0080;
+  text-align: center;
+  
+}
+
+a:visited {
+  color: $navy;
+  
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: $navy;
+  color: $hot-pink;
+
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 30px;
+  width: 40%;
+}
+
+.form-signin {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 30px;
+  width: 40%;
+}
+
+.review-form {
+  display: flex;
+  margin: 0 25px;
+}
+
+.textboxclass {
+  height: 30px;
+  width: 60%;
+}
+
+.event-bg-img {
+  background: url(../images/landscape.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: $white;
+    font-size: 1.2em;
+  }
+}
+
+.bg-img-guests {
+  background: url(../images/pablo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.padding {
+  margin: 0 15px;
+}
+
+.event-bg-img-signin {
+  background: url(../images/florian.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.text-signin {
+  color: white;
+  
+}
+
+.textboxstyle {
+  width: 300px;
+  height: 40px;
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 25px;
+  justify-content: flex-end;
+}
+
+.events-left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: $white;
+  justify-content: flex-start;
+  filter: alpha(opacity=80);
+  opacity: 0.7;
+  color: $black;
+}
+
+.event-list {
+  ul {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    // background-color: $white;
+    // filter: alpha(opacity=80);
+    // opacity: 0.7;
+    position: relative;
+    width: 90%;
+    left: 1em;
+    color: $black;
+  }
+}
+
+.events-and-form {
+  display: flex;
+  margin: 0 25px;
+  flex-direction: row;
+}
+
+.event-bg-img-single {
+  background: url(../images/fidel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  ul {
+    display: flex;
+    align-items: flex-end;
+    color: $white;
+    font-size: 1.2em;
+  }
+}
+
+.event-bg-img-show {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(135, 135, 135, 0.461)),
+    url(../images/alexander.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 100px;
+    left: 0;
+  li {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: $white;
+    // filter: alpha(opacity=80);
+    // opacity: 0.7;
+    // position: relative;
+    width: 80%;
+    left: 1em;
+    color: $black;
+  }
+}

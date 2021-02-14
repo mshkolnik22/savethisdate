@@ -1,0 +1,49 @@
+@import "./foundation/settings";
+@import "~foundation-sites/scss/foundation";
+@import "./variables";
+@include foundation-everything;
+
+body,
+html {
+  height: 100%;
+}
+
+.app-header {
+  h1 {
+    text-shadow: 2px 2px #fcfcfc;
+  }
+}
+
+// button:active {
+//   background: $hot-pink;
+//   border: none;
+// }
+
+// .button-group {
+//   border-color: hotpink;
+//   background: $navy;
+// }
+
+.bg-img {
+  background: linear-gradient(rgba(6, 1, 65, 0.82), rgba(0, 0, 0, 0)),
+    url(../images/landscape.png);
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.bg-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: top;
+}
+
+.bg-text {
+  text-align: center;
+  color: $white;
+}
