@@ -10,7 +10,7 @@ exports.up = async (knex) => {
     table.bigIncrements("id").primary()
     table.string("title").notNullable()
     table.string("typeOfEvent")
-    table.text("description")
+    table.string("description")
     table.string("hostedBy").notNullable()
     table.string("hostEmail").notNullable()
     table.string("linkURL")

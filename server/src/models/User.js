@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const Bcrypt = require("bcrypt");
-const unique = require("objection-unique");
-const Model = require("./Model");
+const Bcrypt = require("bcrypt")
+const unique = require("objection-unique")
+const Model = require("./Model")
 
 const saltRounds = 10;
 
@@ -12,7 +12,7 @@ const uniqueFunc = unique({
 
 class User extends uniqueFunc(Model) {
   static get tableName() {
-    return "users";
+    return "users"
   }
 
   set password(newPassword) {
@@ -44,6 +44,22 @@ class User extends uniqueFunc(Model) {
 
     return serializedJson;
   }
+
+  static get relationMappings() {
+    const { Invite } = require("./index")
+
+    return {
+      invites: {
+        relation: Model.HasManyRelation,
+        modelClass: Invite,
+        join: {
+          from: "users.id",
+          to: "invites.userId",
+        },
+      },
+    }
+  }
+
 }
 
 module.exports = User;

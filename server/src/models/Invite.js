@@ -1,40 +1,49 @@
-const Model = require("./Model");
-const User = require('./User');
-const Event = require('./Event')
+const Model = require("./Model")
 
 class Invite extends Model {
   static get tableName() {
-    return "invites";
+    return "sendInvites"
   }
 
-static get relationMappings () {
-  return {
-    host: {
-      relation: BaseModel.BelongsToOneRelation,
-      modelClass: User,
-      join: {
-        from: 'invites.users_id',
-        to: 'users.id'
-      }
-    },
-    guest: {
-      relation: BaseModel.BelongsToOneRelation,
-      modelClass: User,
-      join: {
-        from: 'invites.guests_id',
-        to: 'users.id'
-      }
-    }, 
-    events: {
-      relation: BaseModel.BelongsToOneRelation,
-      modelClass: Event,
-      join: {
-        from: 'invites.events_id',
-        to: 'events.id'
-      }
+  static get relationMappings() {
+    const { Event, User } = require("./index")
+
+    return {
+      event: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Event,
+        join: {
+          from: "invites.eventId",
+          to: "events.id",
+        },
+      },
+
+      user: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: "invites.userId",
+          to: "users.id",
+        },
+      },
     }
   }
-}
+
+  static get jsonSchema() {
+    return {
+      type: "object",
+      required: [],
+      properties: {
+        response: { type: "string" },
+        admin: { type: "boolean" },
+        expirationDate: { type: "string" },
+        active: { type: "boolean" },
+        inviteURL: { type: "string" },
+        eventId: { type: ["string", "integer"] },
+        userId: { type: ["string", "integer"] },
+      },
+    }
+  }
 }
 
 module.exports = Invite

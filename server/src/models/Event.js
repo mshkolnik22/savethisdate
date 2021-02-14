@@ -4,22 +4,33 @@ class Event extends Model {
   static get tableName() {
     return "events"
   }
-
   static get relationMappings() {
-    const { Guest } = require("./index")
+    const { Invite, User } = require("./index")
 
     return {
-      guests: {
+      invites: {
         relation: Model.HasManyRelation,
-        modelClass: Guest,
+        modelClass: Invite,
         join: {
-          from: "guests.id",
-          to: "guests.eventId",
+          from: "events.id",
+          to: "invites.eventId",
+        },
+      },
+      // update that Event belongs to User
+      users: {
+        relation: Model.ManyToManyRelation,
+        modelClass: User,
+        join: {
+          from: "events.id",
+          through: {
+            from: "invites.eventId",
+            to: "invites.userId",
+          },
+          to: "users.id",
         },
       },
     }
   }
-
   static get jsonSchema() {
     return {
       type: "object",
