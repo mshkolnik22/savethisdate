@@ -25,13 +25,13 @@ const SignOutButton = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/events";
   }
 
   return (
-    <button type="button" className="button" onClick={signOut}>
-      Sign Out
-    </button>
+      <button type="button" className="button clear" onClick={signOut}>
+        Sign Out
+      </button>
   );
 };
 

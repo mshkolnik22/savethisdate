@@ -73,17 +73,19 @@ const EventsPage = (props) => {
 
   const eventListItems = events.map((eventItem) => {
     return (
-      <li key={eventItem.id}>
-        <Link to={`/events/${eventItem.id}`}>{eventItem.title}</Link>
-      </li>
+      <div className="scroll">
+        <li key={eventItem.id}>
+          <Link to={`/events/${eventItem.id}`}>{eventItem.title}</Link>
+        </li>
+      </div>
     )
   })
  
 
   return (
-    <div>
-      <div>
-        <div>
+    <div className="event-bg-img">
+      <div className="events-and-form">
+        <div className="events-left">
           <h3>Your events:</h3>
           <ul>{eventListItems}</ul>
         </div>

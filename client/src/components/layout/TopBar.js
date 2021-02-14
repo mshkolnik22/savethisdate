@@ -15,20 +15,23 @@ const TopBar = ({ user }) => {
   ];
 
   const authenticatedListItems = [
-    <li key="sign-out">
-      <SignOutButton />
-    </li>,
+    <div className="hollow button" key="sign-out">
+        <SignOutButton />
+    </div>,
   ];
 
   return (
     <div className="top-bar">
       <div className="top-bar-left">
-        <ul className="menu">
-          <li className="menu-text">App</li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
+        <Link to="/">
+          <button className="hollow button">Save This Date!</button>
+        </Link>
+        <Link to="/events">
+          <button className="hollow button">Events</button>
+        </Link>
+        <Link to="/guests">
+          <button className="hollow button">Guests</button>
+        </Link>
       </div>
       <div className="top-bar-right">
         <ul className="menu">{user ? authenticatedListItems : unauthenticatedListItems}</ul>

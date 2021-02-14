@@ -1,7 +1,27 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
-// place global css here
+@import "./variables";
+
+@import "./app.scss";
+@import "./topbar.scss";
+@import "./events.scss";
+
+// .button-group {
+//   background: $navy;
+// }
+
+// .success {
+//   border-color: #ffffff;
+//   color: $hot-pink;
+
+// }
+
+// .success:hover {
+//   background-color: $hot-pink;
+//   color: white;
+// }
+
 *,
 *::before,
 *::after {

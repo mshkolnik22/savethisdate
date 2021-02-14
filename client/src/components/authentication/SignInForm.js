@@ -60,26 +60,28 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/events";
   }
 
   return (
-    <div className="grid-container" onSubmit={onSubmit}>
+    <div className="form-signin event-bg-img-signin grid-container" onSubmit={onSubmit}>
       <h1>Sign In</h1>
       <form>
-        <div>
+        <div className="text-signin">
           <label>
             Email
-            <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
+            <input type="text" className="textboxstyle" placeholder="Email address" name="email" value={userPayload.email} onChange={onInputChange} />
             <FormError error={errors.email} />
           </label>
         </div>
-        <div>
+        <div className="text-signin">
           <label>
             Password
             <input
+              className="textboxstyle"
               type="password"
               name="password"
+              placeholder="Password"
               value={userPayload.password}
               onChange={onInputChange}
             />

@@ -29,10 +29,17 @@ const App = (props) => {
       <Switch>
         <Route exact path="/">
           <div>
-            <h2>Welcome to Save This Date!</h2>
-            <Link to="/events">
-              Add Your Event
+          <div className="bg-img">
+            <div className="bg-container">
+              <div className="bg-text">
+            
+            <h2 className="app-header">Welcome to Save This Date!</h2>
+            <Link className="button large clear" to="/events">
+              <h1 className="app-header">Create Events</h1>
             </Link>
+          </div>
+          </div>
+          </div>
           </div>
         </Route>
         <Route exact path="/events">
