@@ -1,5 +1,6 @@
 import React, { useState } from "react"
- 
+import DatePicker from "react-datepicker";
+
 const EventForm = (props) => {
  const [eventRecord, setEventRecord] = useState({
    title: "",
@@ -113,7 +114,7 @@ const EventForm = (props) => {
              name="hostEmail"
              placeholder="Contact information of the Host"
              onChange={handleChange}
-             value={eventRecord.hostedEmail}
+             value={eventRecord.hostEmail}
            />
          </label>
  
