@@ -27,7 +27,7 @@ const App = (props) => {
         setCurrentUser(null)
       })
   }, [])
-
+//style={{ width: "600px", margin: "auto", padding: "50px" }}
   return (
     <Router>
       <TopBar user={currentUser} />
@@ -37,8 +37,8 @@ const App = (props) => {
           <div className="bg-img">
             <div className="bg-container">
               <div className="bg-text">
-              {/* <div className="App" style={{ width: "600px", margin: "auto", padding: "50px" }}>
-                <Carousel arrows infinite>
+              {/* <div>
+              <Carousel itemsToShow={1}>
               <img src={Image1} />
               <img src={Image2} />
               <img src={Image3} />
