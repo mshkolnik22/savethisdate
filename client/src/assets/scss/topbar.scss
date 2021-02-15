@@ -3,12 +3,11 @@
 @import "./variables";
 @include foundation-everything;
 
-// button:active {
+// .menu {
+//   display: flex;
 //   background-color: $navy;
-//   color: lightblue;
-//   border: none;
+//   color: $white;
 // }
-
 .top-bar {
   display: flex;
   
@@ -23,21 +22,15 @@
   align-items: flex-start;
 }
 
-// .top-logo {
-//   display: flex;
-//   background: url(../../assets/images/background-logo.jpg);
-//   max-height: 100px;
-//   max-width: 100px;
-// }
-
 .top-bar-right {
   display: flex;
   flex-direction: column;
+  background-color: $navy;
 }
 
 .top-bar-left {
   display: flex;
-  margin-left: 80px;
+  margin-left: 100px;
 }
 
 .textboxclass {

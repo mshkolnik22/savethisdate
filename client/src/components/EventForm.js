@@ -43,9 +43,10 @@ const EventForm = (props) => {
  }
  
  return (
-   <div>
+  
+   <div className="event-list">
      <div>
-       <form onSubmit={handleSubmit}>
+       <form className="form-right" onSubmit={handleSubmit}>
          <label htmlFor="title">
            Event Title:
            <input
@@ -68,29 +69,6 @@ const EventForm = (props) => {
              onChange={handleChange}
              value={eventRecord.description}
            />
-         </label>
-
-         <label htmlFor="typeOfEvent">
-          Type of the Event:
-          <select
-            name="typeOfEvent"
-            onChange={handleChange}
-            value={eventRecord.typeOfEvent}
-            >
-              <option value=""> Please select the type of the Event: </option>
-              <option value="1" >Happy Hour</option>
-              <option value="2" >Wedding</option>
-              <option value="3" >Game Night</option>
-              <option value="4" >Theme Party</option>
-              <option value="5" >Housewarming</option>
-              <option value="6" >Farewell/Retirement</option>
-              <option value="7" >Reunion</option>
-              <option value="8" >Birthday</option>
-              <option value="9" >Book Club</option>
-              <option value="10" >Social</option>
-              <option value="11" >Family Gathering</option>
-              <option value="12" >Other</option>
-            </select>
          </label>
  
          <label htmlFor="hostedBy">
@@ -153,6 +131,29 @@ const EventForm = (props) => {
            />
          </label>
  
+         <label htmlFor="typeOfEvent">
+          Type of the Event:
+          <select
+            name="typeOfEvent"
+            onChange={handleChange}
+            value={eventRecord.typeOfEvent}
+            >
+              <option value=""> Please select the type of the Event: </option>
+              <option value="1" >Happy Hour</option>
+              <option value="2" >Wedding</option>
+              <option value="3" >Game Night</option>
+              <option value="4" >Theme Party</option>
+              <option value="5" >Housewarming</option>
+              <option value="6" >Farewell/Retirement</option>
+              <option value="7" >Reunion</option>
+              <option value="8" >Birthday</option>
+              <option value="9" >Book Club</option>
+              <option value="10" >Social</option>
+              <option value="11" >Family Gathering</option>
+              <option value="12" >Other</option>
+            </select>
+         </label>
+
          <label htmlFor="time">
            Start time of the Event:
             <select
@@ -189,7 +190,7 @@ const EventForm = (props) => {
          </label>
  
          <label htmlFor="reminder">
-           Number of days or months for the Reminder:
+           Reminder:
            <select
             name="reminder"
             onChange={handleChange}
@@ -210,13 +211,14 @@ const EventForm = (props) => {
               <option value="0" >NONE</option>
             </select>
          </label>
- 
+        
          <div>
            <input className="button" type="submit" value="Submit" />
          </div>
        </form>
      </div>
    </div>
+   
  )
 }
  
