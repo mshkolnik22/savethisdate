@@ -5,28 +5,15 @@ class Event extends Model {
     return "events"
   }
   static get relationMappings() {
-    const { Invite, User } = require("./index")
+    const { Guest } = require("./index")
 
     return {
-      invites: {
+      guests: {
         relation: Model.HasManyRelation,
-        modelClass: Invite,
+        modelClass: Guest,
         join: {
           from: "events.id",
-          to: "invites.eventId",
-        },
-      },
-      // update that Event belongs to User
-      users: {
-        relation: Model.ManyToManyRelation,
-        modelClass: User,
-        join: {
-          from: "events.id",
-          through: {
-            from: "invites.eventId",
-            to: "invites.userId",
-          },
-          to: "users.id",
+          to: "guests.eventId",
         },
       },
     }

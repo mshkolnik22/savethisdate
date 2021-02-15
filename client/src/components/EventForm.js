@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import DatePicker from "react-datepicker";
 
 const EventForm = (props) => {
  const [eventRecord, setEventRecord] = useState({
@@ -208,6 +207,7 @@ const EventForm = (props) => {
               <option value="30" >1 month</option>
               <option value="60" >2 months</option>
               <option value="90" >3 months</option>
+              <option value="0" >NONE</option>
             </select>
          </label>
  

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
-const GuestForm = (props) => {
-  const [guestRecord, setGuestRecord] = useState({
+const GuestForm = ({ addGuest }) => {
+  const [newGuest, setNewGuest] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -10,20 +10,20 @@ const GuestForm = (props) => {
   })
 
   const handleChange = (guest) => {
-    setGuestRecord({
-      ...guestRecord,
+    setNewGuest({
+      ...newGuest,
       [guest.currentTarget.name]: guest.currentTarget.value,
     })
   }
  
- const handleSubmit = (guest) => {
-  guest.preventDefault()
-  props.addGuest(guestRecord)
+ const handleSubmit = (event) => {
+  event.preventDefault()
+  addGuest(newGuest)
   clearForm()
 }
 
 const clearForm = () => {
-  setEventRecord({
+  setNewGuest({
     firstName: "",
     lastName: "",
     email: "",
@@ -44,7 +44,7 @@ return (
             name="firstName"
             placeholder="Guest's First Name"
             onChange={handleChange}
-            value={guestRecord.firstName}
+            value={newGuest.firstName}
           />
         </label>
 
@@ -56,7 +56,7 @@ return (
             name="lastName"
             placeholder="Guest's Last Name"
             onChange={handleChange}
-            value={guestRecord.lastName}
+            value={newGuest.lastName}
           />
         </label>
 
@@ -68,7 +68,7 @@ return (
             name="email"
             placeholder="Email address"
             onChange={handleChange}
-            value={guestRecord.email}
+            value={newGuest.email}
           />
         </label>
 
@@ -80,7 +80,7 @@ return (
             name="phone"
             placeholder="Phone number"
             onChange={handleChange}
-            value={guestRecord.phone}
+            value={newGuest.phone}
           />
         </label>
 
@@ -92,7 +92,7 @@ return (
             name="rsvp"
             placeholder="rsvp status"
             onChange={handleChange}
-            value={guestRecord.rsvp}
+            value={newGuest.rsvp}
           />
         </label>
         <div>

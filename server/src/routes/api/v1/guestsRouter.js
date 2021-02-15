@@ -4,7 +4,7 @@ import objection from "objection"
 const { ValidationError } = objection
 import cleanUserInput from "../../../services/cleanUserInput.js"
 
-const guestsRouter = new express.Router()
+const guestsRouter = new express.Router({ mergeParams: true })
 
 guestsRouter.post("/", async (req, res) => {
   const { body } = req

@@ -1,18 +1,25 @@
 import express from "express"
 import { Event } from "../../../models/index.js"
 import objection from "objection"
-
+import guestsRouter from "./guestsRouter.js"
+import EventSerializer from "../../serializers/EventSerializer.js"
 const { ValidationError } = objection
-
 import cleanUserInput from "../../../services/cleanUserInput.js"
 
 const eventsRouter = new express.Router()
+
+eventsRouter.use("/:id/guests", guestsRouter)
 
 eventsRouter.get("/", async (req, res) => {
   console.log("inside first get")
   try {
     const events = await Event.query()
-    return res.status(200).json({ events: events })
+    const serializedEvents = []
+    for (const event of events) {
+      const serializedEvent = await EventSerializer.getSummary(event)
+      serializedEvents.push(serializedEvent)
+    }
+    return res.status(200).json({ events: serializedEvents })
   } catch (error) {
     return res.status(500).json({ errors: error })
   }
@@ -23,9 +30,12 @@ eventsRouter.get("/:id", async (req, res) => {
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)
-    //event.invites = await event.$relatedQuery("invites")
+    const serializedEvent = await EventSerializer.getSummary(event)
+    console.log(event)
+    console.log(serializedEvent)
+
     if (event) {
-      res.status(200).json({ event: event })
+      res.status(200).json({ event: serializedEvent })
     } else {
       res.status(404)
     }
