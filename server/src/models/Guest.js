@@ -6,12 +6,12 @@ class Guest extends Model {
   }
 
   static get relationMappings() {
-    const { Guest, User } = require("./index")
+    const { Event, User } = require("./index")
 
     return {
-      guest: {
+      event: {
         relation: Model.BelongsToOneRelation,
-        modelClass: Guest,
+        modelClass: Event,
         join: {
           from: "guests.eventId",
           to: "events.id",
@@ -39,6 +39,8 @@ class Guest extends Model {
         email: { type: "string" },
         phone: { type: "string" },
         rsvp: { type: "string" },
+        eventId: { type: ["string", "integer"] },
+        userId: { type: ["string", "integer"] },
       },
     }
   }
