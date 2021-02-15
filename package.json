@@ -21,6 +21,10 @@
         "yarn": "1.22.10"
     },
     "dependencies": {
-        "react-elastic-carousel": "^0.11.1"
+        "react-elastic-carousel": "^0.11.1",
+        "react-multi-carousel": "^2.6.1"
+    },
+    "devDependencies": {
+        "twilio": "^3.56.0"
     }
 }
