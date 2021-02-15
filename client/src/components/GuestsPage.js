@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import GuestForm from "./GuestForm"
 import ErrorList from "./ErrorList"
 import translateServerErrors from "../services/translateServerErrors"
+import Table from "./Table"
 
 const GuestsPage = (props) => {
   const [guests, setGuests] = useState([])
@@ -82,7 +83,7 @@ const GuestsPage = (props) => {
   }
 
 return (
-  <div>
+  <div className="event-form-guests">
     <div>
       <div>
         <h3>Your Guests:</h3>

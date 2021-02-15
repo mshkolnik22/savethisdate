@@ -31,7 +31,7 @@ const EventsPage = (props) => {
   }, [])
 
   const addEvent = async (eventPayload) => {
-    //debugger
+
     try {
       const response = await fetch("/api/v1/events", {
         method: "POST",
@@ -52,7 +52,7 @@ const EventsPage = (props) => {
         }
       } else {
         const body = await response.json()
-        //debugger
+       
         const updatedEvents = events.concat(body.event)
         setEvents(updatedEvents)
       }
@@ -60,20 +60,10 @@ const EventsPage = (props) => {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
- 
-
-  // const eventListItems = events.map((eventItem) => {
-  //   return (
-  //     <div>
-  //       <h1>All your Events</h1>
-  //       <ul>{eventListItems}</ul>
-  //     </div>
-  //   )
-  // })
 
   const eventListItems = events.map((eventItem) => {
     return (
-      <div className="scroll">
+      <div>
         <li key={eventItem.id}>
           <Link to={`/events/${eventItem.id}`}>{eventItem.title}</Link>
         </li>
@@ -83,7 +73,7 @@ const EventsPage = (props) => {
  
 
   return (
-    <div className="event-bg-img">
+    <div className="event-bg-img-all">
       <div className="events-and-form">
         <div className="events-left">
           <h3>Your events:</h3>

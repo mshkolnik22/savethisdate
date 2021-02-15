@@ -33,9 +33,9 @@ const clearForm = () => {
 }
 
 return (
-  <div>
+  <div className="event-form-guests">
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="form-right" onSubmit={handleSubmit}>
         <label htmlFor="firstName">
           Guest's First Name:
           <input

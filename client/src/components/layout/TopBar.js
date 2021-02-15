@@ -1,17 +1,18 @@
+import { divide } from "lodash";
 import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
 
 const TopBar = ({ user }) => {
   const unauthenticatedListItems = [
-    <li key="sign-in">
-      <Link to="/user-sessions/new">Sign In</Link>
-    </li>,
-    <li key="sign-up">
+    <div key="sign-in">
+      <Link to="/user-sessions/new" className="button">Sign In</Link>
+    </div>,
+    <div key="sign-up">
       <Link to="/users/new" className="button">
         Sign Up
       </Link>
-    </li>,
+    </div>,
   ];
 
   const authenticatedListItems = [
@@ -34,7 +35,7 @@ const TopBar = ({ user }) => {
         </Link>
       </div>
       <div className="top-bar-right">
-        <ul className="menu">{user ? authenticatedListItems : unauthenticatedListItems}</ul>
+        <a className="menu button">{user ? authenticatedListItems : unauthenticatedListItems}</a>
       </div>
     </div>
   );

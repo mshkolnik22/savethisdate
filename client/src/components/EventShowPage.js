@@ -70,6 +70,7 @@ const EventShowPage = (props) => {
 
   const getGuests = event.guests.map((guest) => {
     return (
+      <div>
       <ul key={guest.id}>
         <li>First Name: {guest.firstName}</li>
         <li>Last Name: {guest.lastName}</li>
@@ -77,6 +78,7 @@ const EventShowPage = (props) => {
         <li>Phone: {guest.phone}</li>
         <li>RSVP: {guest.rsvp}</li>
       </ul>
+      </div>
     )
   })
 

@@ -3,35 +3,25 @@ html {
   height: 100%;
 }
 
-button:active {
-  background-color: $navy;
-  border-color: $white;
-  border: 5px;
+h3, label, button {
+  color:$white;
+}
+
+h1 {
+  color: $hot-pink;
+  text-decoration: underline;
+}
+
+.button{
+  background-color: lightblue;
+  color: $navy;
+
 }
 
 p {
   color: $white;
   font-size: 1.4em;
 }
-
-a {
-  color: #4b0080;
-  text-align: center;
-  
-}
-
-a:visited {
-  color: $navy;
-  
-}
-
-a:focus {
-  border-bottom: 1px solid;
-  background: $navy;
-  color: $hot-pink;
-
-}
-
 
 .form {
   display: flex;
@@ -66,7 +56,7 @@ a:focus {
   background: url(../images/landscape.png);
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  //position: relative;
   min-height: 100%;
   width: 100%;
   position: fixed;
@@ -94,12 +84,9 @@ a:focus {
   left: 0;
 }
 
-.padding {
-  margin: 0 15px;
-}
-
 .event-bg-img-signin {
-  background: url(../images/florian.jpg);
+  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)), 
+  url(../images/florian.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100%;
@@ -115,7 +102,13 @@ a:focus {
   color: white;
   
 }
+.label {
+  color: $white;
+}
 
+.form {
+  color: $white;
+}
 .textboxstyle {
   width: 300px;
   height: 40px;
@@ -123,36 +116,60 @@ a:focus {
 
 .form-right {
   display: flex;
-  flex-direction: column;
-  width: 60%;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  label {
+    margin: 5px 10px 5px 0;
+    width: 25%;
+  }
   margin: 0 25px;
-  justify-content: flex-end;
+  input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+}
+
+.single-event {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  background-color: $navy;
+  filter: alpha(opacity=80);
+  opacity: 0.7;
+  ul {
+    display: flex;
+    background-color: $navy;
+    filter: alpha(opacity=80);
+    opacity: 0.7;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
 .events-left {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  background-color: $white;
-  justify-content: flex-start;
-  filter: alpha(opacity=80);
-  opacity: 0.7;
-  color: $black;
+  align-items: flex-start;
+  width: 80%;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
 .event-list {
-  ul {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    // background-color: $white;
-    // filter: alpha(opacity=80);
-    // opacity: 0.7;
-    position: relative;
-    width: 90%;
-    left: 1em;
-    color: $black;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: $white;
 }
 
 .events-and-form {
@@ -161,8 +178,10 @@ a:focus {
   flex-direction: row;
 }
 
-.event-bg-img-single {
-  background: url(../images/fidel.jpg);
+.event-bg-img-all {
+  background: 
+  linear-gradient(#03104298, rgba(255, 0, 204, 0.351)),
+  url(../images/fidel.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100%;
@@ -181,8 +200,8 @@ a:focus {
 }
 
 .event-bg-img-show {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(135, 135, 135, 0.461)),
-    url(../images/alexander.jpg);
+  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)),
+  url(../images/alexander.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;
@@ -192,16 +211,21 @@ a:focus {
     position: fixed;
     top: 100px;
     left: 0;
+   
   li {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     background-color: $white;
-    // filter: alpha(opacity=80);
-    // opacity: 0.7;
-    // position: relative;
-    width: 80%;
+    width: 60%;
     left: 1em;
     color: $black;
   }
+}
+
+.event-form-guests {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  
 }

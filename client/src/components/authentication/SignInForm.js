@@ -66,7 +66,7 @@ const SignInForm = () => {
   return (
     <div className="form-signin event-bg-img-signin grid-container" onSubmit={onSubmit}>
       <h1>Sign In</h1>
-      <form>
+      <form className="label">
         <div className="text-signin">
           <label>
             Email
@@ -89,7 +89,7 @@ const SignInForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Sign In" />
+          <input type="submit" className="button solid large" value="Sign In" />
         </div>
       </form>
     </div>

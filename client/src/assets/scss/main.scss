@@ -7,21 +7,11 @@
 @import "./topbar.scss";
 @import "./events.scss";
 
-// .button-group {
-//   background: $navy;
-// }
-
-// .success {
-//   border-color: #ffffff;
-//   color: $hot-pink;
-
-// }
-
-// .success:hover {
-//   background-color: $hot-pink;
-//   color: white;
-// }
-
+.menu {
+    background-color: $navy;
+    color: $hot-pink;
+    font-size: 1.3em;
+}
 *,
 *::before,
 *::after {
@@ -33,10 +23,3 @@
   tab-size: 4;
 }
 
-.callout {
-  color: red;
-}
-
-.alert {
-  color: blue;
-}
