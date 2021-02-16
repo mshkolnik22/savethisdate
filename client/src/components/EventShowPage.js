@@ -92,11 +92,15 @@ const EventShowPage = (props) => {
       <div>
         <p>
           <p className="padding">Add a Guest:</p>
-          <Link className="button padding" to="/users/new">
-            Register
+          <Link to="/users/new">
+            <Button variant="contained" color="primary">
+              Register
+            </Button>
           </Link>
-          <Link className="button padding" to="/user-sessions/new">
-            Sign In
+          <Link to="/user-sessions/new">
+            <Button variant="contained" color="primary">
+             Sign In
+            </Button>
           </Link>
         </p>
       </div>

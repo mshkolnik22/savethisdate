@@ -8,14 +8,32 @@ h3, label, button {
 }
 
 h1 {
-  color: $hot-pink;
+  color: $navy;
   text-decoration: underline;
 }
 
-.button{
-  background-color: lightblue;
-  color: $navy;
+// .button{
+//   background-color: lightblue;
+//   color: $navy;
 
+// }
+
+button {
+  color: $white;
+  font-weight: bold;
+  font-size: 1em;
+  border-color: $hot-pink;
+  background: url(../../assets/images/btn2.png) no-repeat;
+  background-size: 150%;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 4px 2px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+a {
+  color: $hot-pink;
 }
 
 p {
@@ -27,6 +45,14 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  height: 30px;
+  width: 40%;
+}
+
+.regform {
+  display: flex;
+  align-items: center;
   justify-content: center;
   height: 30px;
   width: 40%;
@@ -50,6 +76,23 @@ p {
 .textboxclass {
   height: 30px;
   width: 60%;
+}
+.party {
+  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)), 
+  url(../images/movie.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.center {
+  display: flex;
 }
 
 .event-bg-img {
@@ -137,10 +180,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 80%;
-  background-color: $navy;
-  filter: alpha(opacity=80);
-  opacity: 0.7;
+  width: 50%;
   ul {
     display: flex;
     background-color: $navy;

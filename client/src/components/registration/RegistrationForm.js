@@ -85,7 +85,8 @@ const RegistrationForm = () => {
   }
 
   return (
-    <div className="grid-container" onSubmit={onSubmit}>
+    <div className="center party regform">
+    <div onSubmit={onSubmit}>
       <h1>Register</h1>
       <form>
         <div>
@@ -123,6 +124,7 @@ const RegistrationForm = () => {
           <input type="submit" className="button" value="Register" />
         </div>
       </form>
+    </div>
     </div>
   );
 };

@@ -63,9 +63,11 @@ const EventsPage = (props) => {
 
   const eventListItems = events.map((eventItem) => {
     return (
-      <div>
+      <div >
         <li key={eventItem.id}>
-          <Link to={`/events/${eventItem.id}`}>{eventItem.title}</Link>
+          <Link to={`/events/${eventItem.id}`}>
+            {eventItem.title}
+          </Link>
         </li>
       </div>
     )
