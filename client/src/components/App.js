@@ -28,7 +28,7 @@ const App = (props) => {
         setCurrentUser(null)
       })
   }, [])
-
+//style={{ width: "600px", margin: "auto", padding: "50px" }}
   return (
     <Router>
       <TopBar user={currentUser} />

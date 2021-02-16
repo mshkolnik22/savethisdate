@@ -4,6 +4,7 @@ import GuestForm from "./GuestForm"
 import ErrorList from "./ErrorList"
 import translateServerErrors from "../services/translateServerErrors"
 
+
 const EventShowPage = (props) => {
   const userStatus = props.user
 
@@ -82,6 +83,8 @@ const EventShowPage = (props) => {
     )
   })
 
+
+
   let loginStatusError = ""
 
   if (!loginStatus) {
@@ -104,9 +107,59 @@ const EventShowPage = (props) => {
     )
   }
 
+  const sendSMSHandler = async (event) => {
+    event.preventDefault();
+    console.log("Ring")
+    try {
+      const response = await fetch("/api/v1/sms", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+        body: "",
+      })
+      if (!response.ok) {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
+      } else {
+          const body = await response.json()   
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`)
+    }
+  }
+    // fetch("/api/v1/user-sessions", {
+    //   method: "delete",
+    //   headers: new Headers({
+    //     "Content-Type": "application/json",
+    //   }),
+    // }).then((resp) => {
+    //   if (resp.ok) {
+    //     return resp.json().then(() => {
+    //       setShouldRedirect(true);
+    //       return { status: "ok" };
+    //     });
+    //   } else {
+    //     const errorMessage = `${resp.status} (${resp.statusText})`;
+    //     const error = new Error(errorMessage);
+    //     throw error;
+    //   }
+    // });
+  
+
+  const showSendSMSLink = () => {
+    return (
+      <Link to="/sms">
+        <button type="button" onClick={sendSMSHandler}>
+          Send an SMS
+        </button>
+      </Link>
+  )}
+
   return (
     <div className="event-bg-img-show">
-      <div>
+      <div className="single-event">
       <p> Your Event Details: </p>
       <ul>
         <li>Title: {event.title}</li>
@@ -120,6 +173,10 @@ const EventShowPage = (props) => {
         <li>Time of the Event: {event.time}</li>
         <li>Reminder: {event.reminder}</li>
       </ul>
+      </div>
+      <div>
+        <p>Invite Guests:</p>
+        {showSendSMSLink()}
       </div>
       <div>
         <p>Your Guest List:</p>
