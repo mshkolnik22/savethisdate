@@ -11,38 +11,18 @@ html {
 button {
   color: $white;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1em;
+  border-color: $hot-pink;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 200%;
-  width: 170px;
-  border-radius: 2px;
-  padding-left: 10vh;
+  background-size: 150%;
+  border-radius: 5px;
   padding: 8px 16px;
   margin: 4px 2px;
   border-style: solid;
   border-width: 2px;
-  border-color: $hot-pink;
   text-shadow: 2px 2px 5px #dd00ff;
   box-shadow: 2px 2px 5px $hot-pink;
-  span {
-    font-weight: bold;
-  }
 }
-// button {
-//   color: $white;
-//   font-weight: bold;
-//   font-size: 1em;
-//   border-color: $hot-pink;
-//   background: url(../../assets/images/btn2.png) no-repeat;
-//   background-size: 150%;
-//   border-radius: 5px;
-//   padding: 8px 16px;
-//   margin: 4px 2px;
-//   border-style: solid;
-//   border-width: 2px;
-//   text-shadow: 2px 2px 5px #dd00ff;
-//   box-shadow: 2px 2px 5px $hot-pink;
-// }
 
 .bold {
   font-weight: bold;
