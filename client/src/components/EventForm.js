@@ -213,7 +213,7 @@ const EventForm = (props) => {
          </label>
         
          <div>
-           <input className="button" type="submit" value="Submit" />
+           <input className="button glow-on-hover" type="submit" value="Submit" />
          </div>
        </form>
      </div>
