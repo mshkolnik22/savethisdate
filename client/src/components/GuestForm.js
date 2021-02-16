@@ -95,8 +95,9 @@ return (
             value={newGuest.rsvp}
           />
         </label>
+        
         <div>
-          <input className="button" type="submit" value="Submit" />
+          <button className="button glow-on-hover">Submit</button>
         </div>
       </form>
     </div>

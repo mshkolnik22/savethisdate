@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const TopBar = ({ user }) => {
   const unauthenticatedListItems = [
+    <div className="button-container">
     <div key="sign-in">
       <Link to="/user-sessions/new">
         <Button className="glow-on-hover" variant="contained" color="primary">
@@ -21,6 +22,7 @@ const TopBar = ({ user }) => {
         </Button>
       </Link>
     </div>,
+    </div>
   ];
 
   const authenticatedListItems = [
@@ -28,23 +30,24 @@ const TopBar = ({ user }) => {
         <SignOutButton />
     </div>,
   ];
-
+  // 
+  // className="top-bar-left"
   return (
     <div className="top-bar">
       <div className="top-bar-left">
         <Link to="/">
-          <Button variant="contained" color="primary">
+          <Button className="button glow-on-hover" variant="contained" color="primary">
             Save This Date!
           </Button>
           </Link>
           <Link to="/events">
-            <Button variant="contained" color="primary">
+            <Button className="button glow-on-hover" variant="contained" color="primary">
               Events
             </Button>
           </Link>
-          <Link to="/guests">
-            <Button variant="contained" color="primary">
-              Guests
+          <Link to="/invites">
+            <Button className="button glow-on-hover" variant="contained" color="primary">
+              Customize
             </Button>
           </Link>
       </div>

@@ -3,44 +3,82 @@ html {
   height: 100%;
 }
 
-h3, label, button {
+h3, h4, label {
   color:$white;
+  font-weight: bold;
 }
 
-h1 {
-  color: $navy;
-  text-decoration: underline;
+h1, h3 {
+  color: $white;
+  text-shadow: #0057ee 0 0 10px, #dd00ff 5px 5px 5px;
+ 
 }
 
-// .button{
-//   background-color: lightblue;
-//   color: $navy;
+h4 {
+  color: $white;
+  text-shadow: #dd00ff 0 0 2px;
+  font-size: 0.9em;
+ }
 
-// }
+
+.app-header {
+  text-shadow: #0057ee 0 0 10px, #dd00ff 5px 5px 5px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 10vh;
+  padding-right: 1vh;
+  padding-bottom: 2vh;
+}
 
 button {
   color: $white;
   font-weight: bold;
   font-size: 1em;
-  border-color: $hot-pink;
+  border-color: $navy;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 150%;
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin: 4px 2px;
-  border-style: solid;
-  border-width: 2px;
+  background-size: 102%;
+  border: none;
+  outline: none;
+  text-shadow: 2px 2px 5px #dd00ff;
+  box-shadow: 2px 2px 5px $hot-pink;
+  // border-radius: 5px;
+  // padding: 8px 16px;
+  // margin: 4px 2px;
+  // border-style: solid;
+  // border-width: 2px;
 }
 
-a {
-  color: $hot-pink;
-}
+
 
 p {
   color: $white;
   font-size: 1.4em;
 }
 
+.vertical {
+  display: flex;
+  //flex-direction: column;
+  
+}
+
+.cute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  p {
+    color: $hot-pink;
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -55,7 +93,7 @@ p {
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 40%;
+  width: 55%;
 }
 
 .form-signin {
@@ -77,6 +115,7 @@ p {
   height: 30px;
   width: 60%;
 }
+
 .party {
   background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)), 
   url(../images/movie.png);
@@ -91,8 +130,35 @@ p {
   left: 0;
 }
 
+.post-it {
+  display: flex;
+  margin: 0 15px;
+  background: linear-gradient(#031042cb, rgba(255, 0, 204, 0.351)), 
+  url(../images/alexander.jpg);
+  background-size: 95%;
+  background-repeat: no-repeat;
+  height: 320px;
+  width: 320px;
+}
+
 .center {
   display: flex;
+}
+
+.row-fit {
+  display: flex; 
+  flex-flow: row wrap;
+  justify-content: center;
+  ul {
+    width: 330px;
+  }
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  
 }
 
 .event-bg-img {
@@ -142,9 +208,9 @@ p {
 }
 
 .text-signin {
-  color: white;
-  
+  color: white; 
 }
+
 .label {
   color: $white;
 }
@@ -152,27 +218,40 @@ p {
 .form {
   color: $white;
 }
+
 .textboxstyle {
   width: 300px;
   height: 40px;
 }
 
-.form-right {
+.tile-box {
+  width: 200px;
+  height: auto;
+}
+
+.event-form-guests {
   display: flex;
   flex-flow: row wrap;
+  align-items: flex-start; 
+}
+
+.div-tile {
+  display: flex;
+  flex-flow: row wrap;
+  
+}
+
+.form-right {
+  display: flex;
+  width: 90%;
+  flex-flow: row wrap;
+  align-items: center;
   align-items: flex-end;
   label {
     margin: 5px 10px 5px 0;
-    width: 25%;
+    width: 30%;
   }
   margin: 0 25px;
-  input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
 
 }
 
@@ -194,14 +273,12 @@ p {
 
 .events-left {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
-  width: 80%;
+  width: 50%;
   ul {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
   }
 }
 
@@ -214,6 +291,7 @@ p {
 
 .events-and-form {
   display: flex;
+  justify-content: space-around;
   margin: 0 25px;
   flex-direction: row;
 }
@@ -240,8 +318,10 @@ p {
 }
 
 .event-bg-img-show {
+  display: flex;
+  flex-direction: row;
   background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)),
-  url(../images/alexander.jpg);
+  url(../images/ledballoons.png);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;
@@ -256,16 +336,11 @@ p {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: $white;
+    background-color: $navy;
     width: 60%;
     left: 1em;
-    color: $black;
+    color: $white;
   }
 }
 
-.event-form-guests {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  
-}
+

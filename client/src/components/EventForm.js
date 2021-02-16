@@ -44,7 +44,7 @@ const EventForm = (props) => {
  
  return (
   
-   <div className="event-list">
+   <div className="event-list app-header">
      <div>
        <form className="form-right" onSubmit={handleSubmit}>
          <label htmlFor="title">
@@ -213,7 +213,7 @@ const EventForm = (props) => {
          </label>
         
          <div>
-           <input className="button glow-on-hover" type="submit" value="Submit" />
+           <button className="button glow-on-hover">Submit</button>
          </div>
        </form>
      </div>
@@ -221,5 +221,5 @@ const EventForm = (props) => {
    
  )
 }
- 
+ ////<input className="button glow-on-hover" type="submit" value="Submit" />
 export default EventForm
