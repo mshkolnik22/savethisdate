@@ -93,12 +93,12 @@ const EventShowPage = (props) => {
           <p className="padding">Add a Guest:</p>
           <Link to="/users/new">
             <Button variant="contained" color="primary">
-              Register
+              REGISTER
             </Button>
           </Link>
           <Link to="/user-sessions/new">
             <Button variant="contained" color="primary">
-             Sign In
+             SIGN IN
             </Button>
           </Link>
         </p>
@@ -137,6 +137,18 @@ const EventShowPage = (props) => {
         </button>
       </Link>
   )}
+  
+  const timeOfEvent = (event) => {
+        let time = ""
+          if (event > 12) {
+            return time = (event - 12) + " PM"
+          } else if (event === 12) {
+            return "NOON"
+          } else { 
+            return time = (event) + " AM"
+          }
+      }
+ 
 
   return (
     <div className="event-bg-img-show">
@@ -146,15 +158,15 @@ const EventShowPage = (props) => {
             
           </div>
           <div>
-            <h3> Your Event Details: </h3>
+            <h2> Your Event Details: </h2>
             <div className="post-it">
             
             <div className="cute">
-              <p>Title: {event.title}</p>
+              <h3>{event.title}</h3>
               <p>Hosted By: {event.hostedBy}</p>
               <p>Host's Email: {event.hostEmail}</p>
               <p>Date of the Event: {event.date}</p>
-              <p>Time of the Event: {event.time}</p>
+              <p>Time of the Event: {timeOfEvent(event.time)}</p>
               <h3>Send a Text: </h3>
               {showSendSMSLink()}
             </div>

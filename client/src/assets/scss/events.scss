@@ -10,7 +10,7 @@ h3, h4, label {
 
 h1, h3 {
   color: $white;
-  text-shadow: #0057ee 0 0 10px, #dd00ff 5px 5px 5px;
+  text-shadow: #0057ee 0 0 3px, #dd00ff 2px 2px 2px, #ff02a2db 3px 0 3px,;
  
 }
 
@@ -22,7 +22,7 @@ h4 {
 
 
 .app-header {
-  text-shadow: #0057ee 0 0 10px, #dd00ff 5px 5px 5px;
+  text-shadow: #0057ee 0 0 3px, #dd00ff 2px 2px 2px;
 }
 
 .button-container {
@@ -41,19 +41,12 @@ button {
   font-size: 1em;
   border-color: $navy;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 102%;
+  background-size: 110%;
   border: none;
   outline: none;
   text-shadow: 2px 2px 5px #dd00ff;
   box-shadow: 2px 2px 5px $hot-pink;
-  // border-radius: 5px;
-  // padding: 8px 16px;
-  // margin: 4px 2px;
-  // border-style: solid;
-  // border-width: 2px;
 }
-
-
 
 p {
   color: $white;
@@ -62,8 +55,6 @@ p {
 
 .vertical {
   display: flex;
-  //flex-direction: column;
-  
 }
 
 .cute {
@@ -93,7 +84,7 @@ p {
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 55%;
+  width: 40%;
 }
 
 .form-signin {
@@ -113,7 +104,7 @@ p {
 
 .textboxclass {
   height: 30px;
-  width: 60%;
+  width: 90%;
 }
 
 .party {
@@ -298,7 +289,11 @@ p {
 
 .event-bg-img-all {
   background: 
+<<<<<<< Updated upstream
   linear-gradient(#031042fb, rgba(255, 0, 204, 0.351)),
+=======
+  linear-gradient(#031042fe, rgba(255, 0, 204, 0.351)),
+>>>>>>> Stashed changes
   url(../images/two-sets.png);
   background-repeat: no-repeat;
   background-size: cover;

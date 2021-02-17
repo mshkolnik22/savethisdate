@@ -14,7 +14,7 @@ button {
   font-size: 1em;
   border-color: $hot-pink;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 150%;
+  background-size: 170%;
   border-radius: 5px;
   padding: 8px 16px;
   margin: 4px 2px;
@@ -41,6 +41,7 @@ button {
 .app-header {
   text-shadow: #00ee87 0 0 5px, #dd00ff 3px 3px 3px;
 }
+
 .bg-img {
   background: linear-gradient(#031042c1, rgba(255, 0, 204, 0.351)), 
     url(../images/balloons.jpg);
