@@ -19,11 +19,5 @@
     "engines": {
         "node": "^14.15",
         "yarn": "1.22.10"
-    },
-    "dependencies": {
-        "@material-ui/core": "^4.11.3"
-    },
-    "devDependencies": {
-        "twilio": "^3.56.0"
     }
 }
