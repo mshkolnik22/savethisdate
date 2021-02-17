@@ -121,7 +121,7 @@ const RegistrationForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Register" />
+          <button className="button glow-on-hover">REGISTER</button>
         </div>
       </form>
     </div>

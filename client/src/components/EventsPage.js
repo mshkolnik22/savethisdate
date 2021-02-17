@@ -63,10 +63,10 @@ const EventsPage = (props) => {
 
   const eventListItems = events.map((eventItem) => {
     return (
-      <div >
+      <div className="tile-list">
         <li key={eventItem.id}>
           <Link to={`/events/${eventItem.id}`}>
-            {eventItem.title}
+            <h4>{eventItem.title}</h4>
           </Link>
         </li>
       </div>
@@ -78,11 +78,11 @@ const EventsPage = (props) => {
     <div className="event-bg-img-all">
       <div className="events-and-form">
         <div className="events-left">
-          <h3>Your events:</h3>
+          <h1>Your events:</h1>
           <ul>{eventListItems}</ul>
         </div>
         <div className="form-right">
-         <h3>Add New event:</h3>
+         <h1>Add New event:</h1>
          <ErrorList errors={errors} />
          <EventForm addEvent={addEvent} />
         </div>

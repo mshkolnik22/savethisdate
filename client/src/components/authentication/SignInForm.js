@@ -60,17 +60,18 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/events";
+    location.href = "/";
   }
 
   return (
-    <div className="form-signin event-bg-img-signin grid-container" onSubmit={onSubmit}>
+    <div className="event-bg-img-signin center party regform">
+    <div onSubmit={onSubmit}>
       <h1>Sign In</h1>
-      <form className="label">
+      <form>
         <div className="text-signin">
           <label>
             Email
-            <input type="text" className="textboxstyle" placeholder="Email address" name="email" value={userPayload.email} onChange={onInputChange} />
+            <input type="text" placeholder="Email address" name="email" value={userPayload.email} onChange={onInputChange} />
             <FormError error={errors.email} />
           </label>
         </div>
@@ -78,7 +79,7 @@ const SignInForm = () => {
           <label>
             Password
             <input
-              className="textboxstyle"
+             
               type="password"
               name="password"
               placeholder="Password"
@@ -89,9 +90,10 @@ const SignInForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button solid large" value="Sign In" />
+          <button className="button glow-on-hover">SIGN IN</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

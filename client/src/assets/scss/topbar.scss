@@ -6,26 +6,49 @@
 button {
   color: $white;
   font-weight: bold;
-  font-size: 1em;
-  border-color: $hot-pink;
+  font-size: 1.1em;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 150%;
-  border-radius: 5px;
+  background-size: 200%;
+  width: 170px;
+  border-radius: 2px;
+  padding-left: 10vh;
   padding: 8px 16px;
   margin: 4px 2px;
   border-style: solid;
   border-width: 2px;
+  border-color: $hot-pink;
+  text-shadow: 2px 2px 5px #dd00ff;
+  box-shadow: 2px 2px 5px $hot-pink;
+  span {
+    font-weight: bold;
+  }
 }
+
+.app-header {
+  text-shadow: #0057ee 0 0 10px, #dd00ff 5px 5px 5px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 10vh;
+  padding-right: 1vh;
+}
+
 a {
   color: $hot-pink;
 }
+
 .glow-on-hover {
-  width: 220px;
-  height: 50px;
+  width: 160px;
+  font-weight: bold;
+  height: 40px;
   border: none;
   outline: none;
   color: #fff;
-  background: #111;
+  background: $hot-pink;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -34,19 +57,20 @@ a {
 
 .glow-on-hover:before {
   content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background: linear-gradient(45deg, #c800ff, #ff0000, #fffb00, #ff00c8, #7a00ff, #00ff7b, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
   top: -2px;
   left:-2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
   animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity .3s ease-in-out;
   border-radius: 25px;
+ 
 }
 
 .glow-on-hover:active {
@@ -67,10 +91,11 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #111;
+  background: $navy;
   left: 0;
   top: 0;
   border-radius: 10px;
+
 }
 
 @keyframes glowing {
@@ -80,16 +105,8 @@ a {
 }
 
 
-
-
-// .menu {
-//   display: flex;
-//   background-color: $navy;
-//   color: $white;
-// }
 .top-bar {
   display: flex;
-  
   background: url(../../assets/images/background-logo.jpg);
   background-color: $navy;
   background-repeat: no-repeat;
@@ -115,16 +132,4 @@ a {
 .textboxclass {
   height: 30px;
   width: 40%;
-}
-
-.hollow {
-  margin: 7px;
-  color: $white;
-}
-
-button-home {
-  color: $white;
-  width: 200px;
-  height: 100px;
- 
 }

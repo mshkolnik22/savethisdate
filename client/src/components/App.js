@@ -28,7 +28,7 @@ const App = (props) => {
         setCurrentUser(null)
       })
   }, [])
-//style={{ width: "600px", margin: "auto", padding: "50px" }}
+
   return (
     <Router>
       <TopBar user={currentUser} />
@@ -38,38 +38,29 @@ const App = (props) => {
             <div className="bg-img">
               <div className="bg-container">
                <div className="bg-text">
-              {/* <div className="App" style={{ width: "600px", margin: "auto", padding: "50px" }}>
-                <Carousel arrows infinite>
-              <img src={Image1} />
-              <img src={Image2} />
-              <img src={Image3} />
-              <img src={Image4} />
-              <img src={Image5} />
-              </Carousel>
-            </div> */}
                   <h2 className="app-header">Welcome to Save This Date!</h2>
                   <Link to="/events">
-                    <Button className="glow-on-hover" variant="contained" color="primary">
+                    <Button className="glow-on-hover bold" variant="contained" color="primary">
                       Create Events
                     </Button>
                   </Link>
-                  <Link to="/users/new">
-                  <Button className="glow-on-hover" variant="contained" color="primary">
-                    Log In
+                  <Link to="/events">
+                  <Button className="glow-on-hover bold" variant="contained" color="primary">
+                    Your Events
                     </Button>
                   </Link>
-                  <Link to="/user-sessions/new">
-                  <Button className="glow-on-hover" variant="contained" color="primary">
-                    Register
+                  <Link to="/invites">
+                  <Button className="glow-on-hover bold" variant="contained" color="primary">
+                    Customize
                     </Button>
                   </Link>
                 </div>
                 <div className="carousel">
-                  <img src={Image1} />
-                  <img src={Image2} />
-                  <img src={Image3} />
-                  <img src={Image4} />
-                 <img src={Image5} />
+                  <a href="/events/5"><img src={Image1} /></a>
+                  <a href="/events/3"><img src={Image2} /></a>
+                  <a href="/events/9"><img src={Image3} /></a>
+                  <a href="/events/4"><img src={Image4} /></a>
+                  <a href="/events/2"><img src={Image5} /></a>
                 </div>
               </div>
             </div>

@@ -72,9 +72,8 @@ const EventShowPage = (props) => {
   const getGuests = event.guests.map((guest) => {
     return (
       <div>
-      <ul key={guest.id}>
-        <li>First Name: {guest.firstName}</li>
-        <li>Last Name: {guest.lastName}</li>
+      <ul className="div-tile" key={guest.id}>
+        <li>{guest.firstName} {guest.lastName}</li>
         <li>Email: {guest.email}</li>
         <li>Phone: {guest.phone}</li>
         <li>RSVP: {guest.rsvp}</li>
@@ -129,24 +128,6 @@ const EventShowPage = (props) => {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
-    // fetch("/api/v1/user-sessions", {
-    //   method: "delete",
-    //   headers: new Headers({
-    //     "Content-Type": "application/json",
-    //   }),
-    // }).then((resp) => {
-    //   if (resp.ok) {
-    //     return resp.json().then(() => {
-    //       setShouldRedirect(true);
-    //       return { status: "ok" };
-    //     });
-    //   } else {
-    //     const errorMessage = `${resp.status} (${resp.statusText})`;
-    //     const error = new Error(errorMessage);
-    //     throw error;
-    //   }
-    // });
-  
 
   const showSendSMSLink = () => {
     return (
@@ -159,34 +140,39 @@ const EventShowPage = (props) => {
 
   return (
     <div className="event-bg-img-show">
-      <div className="single-event">
-      <p> Your Event Details: </p>
-      <ul>
-        <li>Title: {event.title}</li>
-        <li>Type of Event: {event.typeOfEvent}</li>
-        <li>Description: {event.description}</li>
-        <li>Hosted By: {event.hostedBy}</li>
-        <li>Host's Email: {event.hostEmail}</li>
-        <li>Virtual Link: {event.linkURL}</li>
-        <li>Location: {event.location}</li>
-        <li>Date of the Event: {event.date}</li>
-        <li>Time of the Event: {event.time}</li>
-        <li>Reminder: {event.reminder}</li>
-      </ul>
-      </div>
-      <div>
-        <p>Invite Guests:</p>
-        {showSendSMSLink()}
-      </div>
-      <div>
-        <p>Your Guest List:</p>
-      </div>
-      <div>
-        <ErrorList errors={errors} />
-        {loginStatusError}
+      <div className="row-container vertical">
+        
+        <div>
+            
+          </div>
+          <div>
+            <h3> Your Event Details: </h3>
+            <div className="post-it">
+            
+            <div className="cute">
+              <p>Title: {event.title}</p>
+              <p>Hosted By: {event.hostedBy}</p>
+              <p>Host's Email: {event.hostEmail}</p>
+              <p>Date of the Event: {event.date}</p>
+              <p>Time of the Event: {event.time}</p>
+              <h3>Send a Text: </h3>
+              {showSendSMSLink()}
+            </div>
 
-        <GuestForm addGuest={addGuest} userStatus={userStatus} />
-        {getGuests}
+            
+          </div>
+        </div>
+      
+      </div>
+      <div className="row-container horizontal">
+        <div  className="row-fit">
+        <h3>Invite Guests:</h3>
+          <ErrorList errors={errors} />
+            {loginStatusError}
+            
+          <GuestForm addGuest={addGuest} userStatus={userStatus} />
+            {getGuests}
+          </div>
       </div>
     </div>
   )
