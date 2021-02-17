@@ -6,8 +6,8 @@ const smsRouter = new express.Router()
 smsRouter.post("/", async (req, res) => {
   
  console.log("Sending sms from Save This Date...")
-  var accountSid = "AC250d66fac695aac16f28a0e53ee76d81"
-  var authToken = "374720eb51088e9821192338e8687235"
+  var accountSid = ""
+  var authToken = ""
   var client = new twilio(accountSid, authToken);
   client.messages.create({
     body: 'Save This Date: 12/07/2021 for Launch 31 Reunion!',
@@ -16,9 +16,6 @@ smsRouter.post("/", async (req, res) => {
     //mediaUrl: ['https://photos.google.com/search/_tra_/photo/AF1QipMGFZ_necM7SWWngZVTb89GtzHyUoCLYoVwb8ZH']
   })
   .then((message) => {
-
-    console.log("message:")
-    console.log(message)
     console.log(message.sid)
   })
   .catch((error) => {
