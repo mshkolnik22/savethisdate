@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import GuestForm from "./GuestForm"
 import ErrorList from "./ErrorList"
-import translateServerErrors from "../services/translateServerErrors"
 
+import translateServerErrors from "../services/translateServerErrors"
 
 const EventShowPage = (props) => {
   const userStatus = props.user
@@ -82,8 +82,6 @@ const EventShowPage = (props) => {
     )
   })
 
-
-
   let loginStatusError = ""
 
   if (!loginStatus) {
@@ -93,12 +91,12 @@ const EventShowPage = (props) => {
           <p className="padding">Add a Guest:</p>
           <Link to="/users/new">
             <Button variant="contained" color="primary">
-              Register
+              REGISTER
             </Button>
           </Link>
           <Link to="/user-sessions/new">
             <Button variant="contained" color="primary">
-             Sign In
+             SIGN IN
             </Button>
           </Link>
         </p>
@@ -107,15 +105,14 @@ const EventShowPage = (props) => {
   }
 
   const sendSMSHandler = async (event) => {
-    event.preventDefault();
-    console.log("Ring")
+
     try {
       const response = await fetch("/api/v1/sms", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
         }),
-        body: "",
+        body: "", 
       })
       if (!response.ok) {
           const errorMessage = `${response.status} (${response.statusText})`
@@ -131,45 +128,53 @@ const EventShowPage = (props) => {
 
   const showSendSMSLink = () => {
     return (
-      <Link to="/sms">
+      <div>
+      <Link to="/events/congratulations">
         <button type="button" onClick={sendSMSHandler}>
           Send an SMS
         </button>
-      </Link>
+      </Link> 
+      
+      </div>
   )}
+
+  const timeOfEvent = (event) => {
+        let time = ""
+          if (event > 12) {
+            return time = (event - 12) + " PM"
+          } else if (event === 12) {
+            return "NOON"
+          } else { 
+            return time = (event) + " AM"
+          }
+      }
+ 
 
   return (
     <div className="event-bg-img-show">
       <div className="row-container vertical">
-        
         <div>
-            
           </div>
           <div>
             <h3> Your Event Details: </h3>
-            <div className="post-it">
-            
+            <div className="post-it">      
             <div className="cute">
-              <p>Title: {event.title}</p>
+              <h3>{event.title}</h3>
               <p>Hosted By: {event.hostedBy}</p>
               <p>Host's Email: {event.hostEmail}</p>
               <p>Date of the Event: {event.date}</p>
-              <p>Time of the Event: {event.time}</p>
+              <p>Time of the Event: {timeOfEvent(event.time)}</p>
               <h3>Send a Text: </h3>
               {showSendSMSLink()}
             </div>
-
-            
           </div>
         </div>
-      
       </div>
       <div className="row-container horizontal">
         <div  className="row-fit">
         <h3>Invite Guests:</h3>
           <ErrorList errors={errors} />
             {loginStatusError}
-            
           <GuestForm addGuest={addGuest} userStatus={userStatus} />
             {getGuests}
           </div>
@@ -177,7 +182,6 @@ const EventShowPage = (props) => {
     </div>
   )
 }
-
 
 export default EventShowPage
  
