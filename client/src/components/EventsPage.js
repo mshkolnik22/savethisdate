@@ -7,6 +7,7 @@ import translateServerErrors from "../services/translateServerErrors"
 const EventsPage = (props) => {
   const [events, setEvents] = useState([])
   const [errors, setErrors] = useState([])
+  // boolean state that user is not signed in - false
 
   //const user = props.user
 
@@ -15,16 +16,24 @@ const EventsPage = (props) => {
       const response = await fetch("/api/v1/events")
   
       if (!response.ok) {
+        //debugger
+// if response.status === 401
+// set state that user is not signed in - true
+// (then show sample events)
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw error
       }
+
       const body = await response.json()
       setEvents(body.events)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
+  // conditional when state is true && events.length === 0
+  // if (noSignedInUser && events.length <= 0)
+  // map over sample events
 
   useEffect(() => {
     getEvents()
@@ -73,7 +82,7 @@ const EventsPage = (props) => {
     )
   })
  
-
+// render sample events
   return (
     <div className="event-bg-img-all">
       <div className="events-and-form">

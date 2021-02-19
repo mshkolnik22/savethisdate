@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import GuestForm from "./GuestForm"
 import ErrorList from "./ErrorList"
-import translateServerErrors from "../services/translateServerErrors"
 
+import translateServerErrors from "../services/translateServerErrors"
 
 const EventShowPage = (props) => {
   const userStatus = props.user
@@ -82,8 +82,6 @@ const EventShowPage = (props) => {
     )
   })
 
-
-
   let loginStatusError = ""
 
   if (!loginStatus) {
@@ -107,15 +105,14 @@ const EventShowPage = (props) => {
   }
 
   const sendSMSHandler = async (event) => {
-    event.preventDefault();
-    console.log("Ring")
+
     try {
       const response = await fetch("/api/v1/sms", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
         }),
-        body: "",
+        body: "", 
       })
       if (!response.ok) {
           const errorMessage = `${response.status} (${response.statusText})`
@@ -131,13 +128,16 @@ const EventShowPage = (props) => {
 
   const showSendSMSLink = () => {
     return (
-      <Link to="/sms">
+      <div>
+      <Link to="/events/congratulations">
         <button type="button" onClick={sendSMSHandler}>
           Send an SMS
         </button>
-      </Link>
+      </Link> 
+      
+      </div>
   )}
-  
+
   const timeOfEvent = (event) => {
         let time = ""
           if (event > 12) {
@@ -153,14 +153,11 @@ const EventShowPage = (props) => {
   return (
     <div className="event-bg-img-show">
       <div className="row-container vertical">
-        
         <div>
-            
           </div>
           <div>
-            <h2> Your Event Details: </h2>
-            <div className="post-it">
-            
+            <h3> Your Event Details: </h3>
+            <div className="post-it">      
             <div className="cute">
               <h3>{event.title}</h3>
               <p>Hosted By: {event.hostedBy}</p>
@@ -170,18 +167,14 @@ const EventShowPage = (props) => {
               <h3>Send a Text: </h3>
               {showSendSMSLink()}
             </div>
-
-            
           </div>
         </div>
-      
       </div>
       <div className="row-container horizontal">
         <div  className="row-fit">
         <h3>Invite Guests:</h3>
           <ErrorList errors={errors} />
             {loginStatusError}
-            
           <GuestForm addGuest={addGuest} userStatus={userStatus} />
             {getGuests}
           </div>
@@ -189,7 +182,6 @@ const EventShowPage = (props) => {
     </div>
   )
 }
-
 
 export default EventShowPage
  

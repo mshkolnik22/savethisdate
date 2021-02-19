@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { hot } from "react-hot-loader/root"
 import Button from '@material-ui/core/Button';
 
-import Image1 from "../assets/images/1.png";
-import Image2 from "../assets/images/2.png";
-import Image3 from "../assets/images/3.png";
-import Image4 from "../assets/images/4.png";
-import Image5 from "../assets/images/5.png";
+import Image1 from "../assets/images/birthday.jpg";
+import Image2 from "../assets/images/movienight.jpg";
+import Image3 from "../assets/images/sweet16.jpg";
+import Image4 from "../assets/images/hiking.jpg";
+import Image5 from "../assets/images/discordnight.jpg";
 
 import getCurrentUser from "../services/getCurrentUser"
 import "../assets/scss/main.scss"
@@ -16,9 +16,15 @@ import SignInForm from "./authentication/SignInForm"
 import TopBar from "./layout/TopBar"
 import EventShowPage from "./EventShowPage"
 import EventsPage from "./EventsPage"
+import EventEditPage from "./EventEditPage"
+import InvitesPage from "./InvitesPage"
+import Congratulations from "./Congratulations"
+
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined)
+  const [events, setEvents] = useState([])
+
   useEffect(() => {
     getCurrentUser()
       .then((user) => {
@@ -56,11 +62,11 @@ const App = (props) => {
                   </Link>
                 </div>
                 <div className="carousel">
-                  <a href="/events/5"><img src={Image1} /></a>
-                  <a href="/events/3"><img src={Image2} /></a>
-                  <a href="/events/9"><img src={Image3} /></a>
-                  <a href="/events/4"><img src={Image4} /></a>
-                  <a href="/events/2"><img src={Image5} /></a>
+                  <a href="/events"><img src={Image1} /></a>
+                  <a href="/events"><img src={Image2} /></a>
+                  <a href="/events"><img src={Image3} /></a>
+                  <a href="/events"><img src={Image4} /></a>
+                  <a href="/events"><img src={Image5} /></a>
                 </div>
               </div>
             </div>
@@ -71,9 +77,14 @@ const App = (props) => {
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/invites" component={InvitesPage} />
+        <Route exact path="/events/congratulations" component={Congratulations} />
         <Route exact path="/events/:id">
           <EventShowPage user={currentUser} />
         </Route>
+        <Route exact path="/events/:id/edit" component={EventEditPage} />
+       
+
       </Switch>
     </Router>
   )

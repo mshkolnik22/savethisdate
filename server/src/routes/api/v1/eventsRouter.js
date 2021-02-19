@@ -5,13 +5,14 @@ import guestsRouter from "./guestsRouter.js"
 import EventSerializer from "../../serializers/EventSerializer.js"
 const { ValidationError } = objection
 import cleanUserInput from "../../../services/cleanUserInput.js"
+import isAuthenticated from "../../../middlewares/isAuthenticated.js"
 
 const eventsRouter = new express.Router()
 
 eventsRouter.use("/:id/guests", guestsRouter)
 
-eventsRouter.get("/", async (req, res) => {
-  console.log("inside first get")
+eventsRouter.get("/", isAuthenticated(), async (req, res) => {
+  
   try {
     const events = await Event.query()
     const serializedEvents = []
@@ -26,7 +27,7 @@ eventsRouter.get("/", async (req, res) => {
 })
 
 eventsRouter.get("/:id", async (req, res) => {
-  console.log("inside /:id")
+  
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)

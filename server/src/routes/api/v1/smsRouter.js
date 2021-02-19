@@ -13,7 +13,6 @@ smsRouter.post("/", async (req, res) => {
     body: 'Save This Date: 12/07/2021 for Launch 31 Reunion!',
     to: '7815263105',  
     from: '2062796872'
-    //mediaUrl: ['https://photos.google.com/search/_tra_/photo/AF1QipMGFZ_necM7SWWngZVTb89GtzHyUoCLYoVwb8ZH']
   })
   .then((message) => {
     console.log(message.sid)

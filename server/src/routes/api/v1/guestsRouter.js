@@ -13,8 +13,7 @@ guestsRouter.post("/", async (req, res) => {
   const formInput = cleanUserInput(body)
   const eventId = req.params.id
   const { firstName, lastName, email, phone, rsvp } = formInput
-  console.log("formInput")
-  console.log(formInput)
+ 
   try {
     const newGuest = await Guest.query().insertAndFetch({
       firstName,
@@ -25,16 +24,12 @@ guestsRouter.post("/", async (req, res) => {
       eventId,
       userId,
     })
-    console.log("newGuest")
-    console.log(newGuest)
+  
     return res.status(201).json({ newGuest: newGuest })
   } catch (error) {
     if (error instanceof ValidationError) {
-      console.log(error)
-      console.log(error.data)
       return res.status(422).json({ errors: error.data })
     } else {
-      console.log("error from else")
       console.log(error)
       return res.status(500).json({ errors: error })
     }
