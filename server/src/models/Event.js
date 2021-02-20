@@ -32,7 +32,7 @@ class Event extends Model {
         location: { type: "string" },
         date: { type: "string" },
         time: { type: "string" },
-        reminder: { type: ["string", "integer"] },
+        reminder: { type: "string" },
       },
     }
   }

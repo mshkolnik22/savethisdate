@@ -27,7 +27,6 @@ eventsRouter.get("/", isAuthenticated(), async (req, res) => {
 })
 
 eventsRouter.get("/:id", async (req, res) => {
-  
   const { id } = req.params
   try {
     const event = await Event.query().findById(id)
@@ -47,15 +46,9 @@ eventsRouter.get("/:id", async (req, res) => {
 })
 
 eventsRouter.post("/", async (req, res) => {
- 
   const { body } = req
-  console.log("body")
-  console.log(body)
   const formInput = cleanUserInput(body)
-  console.log("formInput")
-  console.log(formInput)
   const { title, typeOfEvent, description, hostedBy, hostEmail, linkURL, location, date, time, reminder } = formInput
-  console.log("before insert")
   console.log([title, typeOfEvent, description, hostedBy, hostEmail, linkURL, location, date, time, reminder])
   try {
     const newEvent = await Event.query().insertAndFetch({
@@ -70,16 +63,55 @@ eventsRouter.post("/", async (req, res) => {
       time, 
       reminder,
     })
-    console.log("after insert")
     return res.status(201).json({ event: newEvent })
   } catch (error) {
-    console.log("error")
-    console.log(error)
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data })
     } else {
       return res.status(500).json({ errors: error })
     }
+  }
+})
+
+eventsRouter.delete("/:id", async (req, res) => {
+  const eventId = req.params.id
+  try {
+    await Event.query().deleteById(eventId)
+    return res.status(204).json({ message: "The event has been deleted!"})
+  } catch (error) {
+    return res.status(500).json({ errors: error })
+  }
+})
+
+eventsRouter.patch("/:id", async (req, res) => {
+  const id = req.params.id
+  const body = req.body
+  const {
+    title, 
+    typeOfEvent, 
+    description, 
+    hostedBy, 
+    hostEmail, 
+    linkURL, 
+    location, 
+    date, 
+    time, 
+    reminder,
+  } = body
+
+  const formInput = cleanUserInput({ title, hostedBy, hostEmail, date })
+    try {
+      const updatedEvent = await Event.query().updateAndFetchById(parseInt(id), {
+        ...formInput,
+        id, typeOfEvent, description, linkURL, location, time, reminder
+      })
+      return res.status(200).json({ event: updatedEvent })
+    } catch (error) {
+      console.log(error)
+    if (error instanceof ValidationError) {
+      return res.status(422).json({ errors: error.data })
+    }
+    return res.status(500).json({ errors: error })
   }
 })
 

@@ -46,19 +46,19 @@ const App = (props) => {
                <div className="bg-text">
                   <h2 className="app-header">Welcome to Save This Date!</h2>
                   <Link to="/events">
-                    <Button className="glow-on-hover bold" variant="contained" color="primary">
-                      Create Events
-                    </Button>
+                    <button className="glow-on-hover bold" variant="contained" color="primary">
+                      CREATE NEW
+                    </button>
                   </Link>
                   <Link to="/events">
-                  <Button className="glow-on-hover bold" variant="contained" color="primary">
-                    Your Events
-                    </Button>
+                    <button className="glow-on-hover bold" variant="contained" color="primary">
+                      YOUR EVENTS
+                    </button>
                   </Link>
                   <Link to="/invites">
-                  <Button className="glow-on-hover bold" variant="contained" color="primary">
-                    Customize
-                    </Button>
+                    <button className="glow-on-hover bold" variant="contained" color="primary">
+                      CUSTOMIZE
+                    </button>
                   </Link>
                 </div>
                 <div className="carousel">

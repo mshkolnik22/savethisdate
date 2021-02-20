@@ -7,19 +7,12 @@ import translateServerErrors from "../services/translateServerErrors"
 const EventsPage = (props) => {
   const [events, setEvents] = useState([])
   const [errors, setErrors] = useState([])
-  // boolean state that user is not signed in - false
-
-  //const user = props.user
 
   const getEvents = async () => {
     try {
       const response = await fetch("/api/v1/events")
   
       if (!response.ok) {
-        //debugger
-// if response.status === 401
-// set state that user is not signed in - true
-// (then show sample events)
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw error
@@ -31,16 +24,12 @@ const EventsPage = (props) => {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
-  // conditional when state is true && events.length === 0
-  // if (noSignedInUser && events.length <= 0)
-  // map over sample events
-
+ 
   useEffect(() => {
     getEvents()
   }, [])
 
   const addEvent = async (eventPayload) => {
-
     try {
       const response = await fetch("/api/v1/events", {
         method: "POST",
@@ -72,8 +61,8 @@ const EventsPage = (props) => {
 
   const eventListItems = events.map((eventItem) => {
     return (
-      <div className="tile-list">
-        <li key={eventItem.id}>
+      <div key={eventItem.id}>
+        <li>
           <Link to={`/events/${eventItem.id}`}>
             <h4>{eventItem.title}</h4>
           </Link>
@@ -82,13 +71,12 @@ const EventsPage = (props) => {
     )
   })
  
-// render sample events
   return (
     <div className="event-bg-img-all">
       <div className="events-and-form">
-        <div className="events-left">
+        <div className="events-left tile-list">
           <h1>Your events:</h1>
-          <ul>{eventListItems}</ul>
+          <ul >{eventListItems}</ul>
         </div>
         <div className="form-right">
          <h1>Add New event:</h1>

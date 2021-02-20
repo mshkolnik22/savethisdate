@@ -2,25 +2,23 @@ import { divide } from "lodash";
 import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
-import Button from '@material-ui/core/Button';
 
 const TopBar = ({ user }) => {
   const unauthenticatedListItems = [
-    <div className="button-container">
-    <div key="sign-in">
-      <Link to="/user-sessions/new">
-        <Button className="glow-on-hover" variant="contained" color="primary">
-          Sign In
-        </Button>
-      </Link>
-
+    <div key="sign-in" className="horizontal button-container">
+    <div>
+      <button className="glow-on-hover" variant="contained" color="primary">
+        <Link to="/user-sessions/new">
+          SIGN IN
+        </Link>
+      </button>
     </div>,
     <div key="sign-up">
-      <Link to="/users/new">
-        <Button className="glow-on-hover" variant="contained" color="primary">
-          Sign Up
-        </Button>
-      </Link>
+      <button className="glow-on-hover" variant="contained" color="primary">
+        <Link to="/users/new">
+          SIGN UP
+        </Link>
+      </button>
     </div>,
     </div>
   ];
@@ -35,21 +33,21 @@ const TopBar = ({ user }) => {
   return (
     <div className="top-bar">
       <div className="top-bar-left">
-        <Link to="/">
-          <Button className="button glow-on-hover" variant="contained" color="primary">
-            Save This Date!
-          </Button>
+        <button className="glow-on-hover" variant="contained" color="primary">
+          <Link to="/">
+            SAVE THIS DATE
           </Link>
+        </button>
+        <button className="glow-on-hover" variant="contained" color="primary">
           <Link to="/events">
-            <Button className="button glow-on-hover" variant="contained" color="primary">
-              Events
-            </Button>
+            EVENTS
           </Link>
+        </button>
+        <button className="glow-on-hover" variant="contained" color="primary">
           <Link to="/invites">
-            <Button className="button glow-on-hover" variant="contained" color="primary">
-              Customize
-            </Button>
+            CUSTOMIZE
           </Link>
+        </button>
       </div>
       <div>
         <a>{user ? authenticatedListItems : unauthenticatedListItems}</a>

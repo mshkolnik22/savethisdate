@@ -9,8 +9,9 @@ import Image5 from "../assets/images/5.png";
 
 const InvitesPage = (props) => {
 
+
   return (
-    <div className="event-bg-img-invites">
+    <div className="bg-container bg-text event-bg-img-invites centertop">
       <div>
         <h1>Browse Different Styles</h1>
       </div>
@@ -25,13 +26,6 @@ const InvitesPage = (props) => {
           <img src={Image5} />
         </div>
         </div>
-      </div>
-      <div>
-      <Link to="/events">
-        <Button className="glow-on-hover bold" variant="contained" color="primary">
-          More Events
-        </Button>
-      </Link>
       </div>
     </div>
   )

@@ -29,8 +29,8 @@ const SignOutButton = () => {
   }
 
   return (
-      <button type="button" onClick={signOut}>
-        Sign Out
+      <button type="button" className="glow-on-hover" onClick={signOut}>
+        SIGN OUT
       </button>
   );
 };
