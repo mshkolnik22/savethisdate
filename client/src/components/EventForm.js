@@ -196,19 +196,18 @@ const EventForm = (props) => {
             onChange={handleChange}
             value={eventRecord.reminder}
             >
-              <option value="">Please select the number of days or months for the Reminder: </option>
-              <option value="1" >1 day</option>
-              <option value="2" >2 days</option>
-              <option value="3" >3 days</option>
-              <option value="5" >5 days</option>
-              <option value="7" >7 days</option>
-              <option value="10" >10 days</option>
-              <option value="14" >14 days</option>
-              <option value="21" >21 days</option>
-              <option value="30" >1 month</option>
-              <option value="60" >2 months</option>
-              <option value="90" >3 months</option>
-              <option value="0" >NONE</option>
+             <option value="0" >NONE</option>
+             <option value="1" >1 day</option>
+             <option value="2" >2 days</option>
+             <option value="3" >3 days</option>
+             <option value="5" >5 days</option>
+             <option value="7" >7 days</option>
+             <option value="10" >10 days</option>
+             <option value="14" >14 days</option>
+             <option value="21" >21 days</option>
+             <option value="30" >1 month</option>
+             <option value="60" >2 months</option>
+             <option value="90" >3 months</option>
             </select>
          </label>
         
