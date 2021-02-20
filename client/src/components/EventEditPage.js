@@ -52,6 +52,7 @@ const EventEditPage = (props) => {
 
   const editEvent = async () => {
     try {
+     
       const response = await fetch(`/api/v1/events/${eventId}`, {
         method: "PATCH",
         headers: new Headers({
@@ -77,7 +78,7 @@ const EventEditPage = (props) => {
   }
 
   if (shouldRedirect) {
-    return <Redirect to={`/events/${eventId}`} />
+    return <Redirect to={`/events`} />
   }
 
   const handleSubmit = (event) => {
@@ -86,8 +87,9 @@ const EventEditPage = (props) => {
   }
 
   return (
-    <div className="event-list app-header">
+    <div className="bg-eventedit-img event-list app-header">
     <div>
+      <h3>Edit the Details of Your Event:</h3>
       <form className="form-right" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
         <label htmlFor="title">
@@ -239,7 +241,7 @@ const EventEditPage = (props) => {
            onChange={handleChange}
            value={form.reminder}
            >
-             <option value="">Please select the number of days or months for the Reminder: </option>
+             <option value="0" >NONE</option>
              <option value="1" >1 day</option>
              <option value="2" >2 days</option>
              <option value="3" >3 days</option>
@@ -251,7 +253,7 @@ const EventEditPage = (props) => {
              <option value="30" >1 month</option>
              <option value="60" >2 months</option>
              <option value="90" >3 months</option>
-             <option value="0" >NONE</option>
+             
            </select>
         </label>
        

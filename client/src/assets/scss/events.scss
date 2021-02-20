@@ -38,14 +38,16 @@ h4 {
 button {
   color: $white;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.8em;
   border-color: $navy;
   background: url(../../assets/images/btn2.png) no-repeat;
   background-size: 110%;
-  border: none;
-  outline: none;
+  border: 4px;
+  outline: 2px;
   text-shadow: 2px 2px 5px #dd00ff;
   box-shadow: 2px 2px 5px $hot-pink;
+  border-width: 4px;
+  border-color: $hot-pink;
 }
 
 p {
@@ -55,21 +57,22 @@ p {
 
 .vertical {
   display: flex;
+  margin: 0 25px;
 }
 
 .cute {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  display: flex;
   align-items: flex-start;
   justify-content: center;
+  margin: 0 25px;
   p {
     color: $hot-pink;
     font-size: 1em;
     font-weight: bold;
   }
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -123,13 +126,13 @@ p {
 
 .post-it {
   display: flex;
+
   margin: 0 15px;
-  background: linear-gradient(#031042cb, rgba(255, 0, 204, 0.351)), 
-  url(../images/alexander.jpg);
-  background-size: 95%;
-  background-repeat: no-repeat;
-  height: 320px;
-  width: 320px;
+  background: linear-gradient(#031042cb, rgba(255, 0, 204, 0.351));
+  //background-size: 120%;
+  //background-repeat: no-repeat;
+  height: auto;
+  width: auto;
 }
 
 .center {
@@ -148,7 +151,9 @@ p {
 .row-container {
   display: flex;
   flex-direction: row;
+  align-items: start;
   flex-flow: row wrap;
+  padding-left: 10vh;
   
 }
 
@@ -331,7 +336,6 @@ p {
     left: 1em;
     color: $white;
   }
-
 
 }
 

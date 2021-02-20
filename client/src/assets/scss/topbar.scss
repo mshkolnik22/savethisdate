@@ -2,26 +2,33 @@
 @import "~foundation-sites/scss/foundation";
 @import "./variables";
 @include foundation-everything;
-
+//sign-out button styling
 button {
   color: $white;
   font-weight: bold;
-  font-size: 1.1em;
-  background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 200%;
-  width: 170px;
+  font-size: 0.9em;
+  background: $navy;
+  //background: url(../../assets/images/btn2.png) no-repeat;
+  background-size: 90%;
+  width: 150px;
   border-radius: 2px;
   padding-left: 10vh;
   padding: 8px 16px;
   margin: 4px 2px;
   border-style: solid;
-  border-width: 2px;
+  border-width: 4px;
   border-color: $hot-pink;
-  text-shadow: 2px 2px 5px #dd00ff;
-  box-shadow: 2px 2px 5px $hot-pink;
+  text-shadow: 2px 2px 5px #008cff;
+ 
   span {
     font-weight: bold;
   }
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .app-header {
@@ -38,7 +45,7 @@ button {
 }
 
 a {
-  color: $hot-pink;
+  color: $white;
 }
 
 .glow-on-hover {
@@ -47,7 +54,7 @@ a {
   height: 40px;
   border: none;
   outline: none;
-  color: #fff;
+  color: $white;
   background: $hot-pink;
   cursor: pointer;
   position: relative;

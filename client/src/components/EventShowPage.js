@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import GuestForm from "./GuestForm"
 import ErrorList from "./ErrorList"
-
+import { Redirect } from "react-router-dom"
 import translateServerErrors from "../services/translateServerErrors"
 
 const EventShowPage = (props) => {
@@ -11,9 +11,11 @@ const EventShowPage = (props) => {
   const [event, setEvent] = useState({
     guests: [],
   })
+  const [shouldRedirect, setShouldRedirect] = useState(false)
   const { id } = useParams()
   const [errors, setErrors] = useState([])
   const [loginStatus, setLoginStatus] = useState(true)
+  //const eventId = props.match.params.id
 
   const getEvent = async () => {
     try {
@@ -33,6 +35,29 @@ const EventShowPage = (props) => {
   useEffect(() => {
     getEvent()
   }, [])
+
+  const handleDeleteShowPage = async () => {
+    try {
+      const response = await fetch(`/api/v1/events/${id}`, {
+        method: "DELETE",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw error
+      }
+      setShouldRedirect(true)
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`)
+    }
+  }
+
+  if (shouldRedirect === true) {
+    return <Redirect to="/events" />
+  }
 
   const addGuest = async (newGuestData) => {
     if (!userStatus) {
@@ -90,14 +115,14 @@ const EventShowPage = (props) => {
         <p>
           <p className="padding">Add a Guest:</p>
           <Link to="/users/new">
-            <Button variant="contained" color="primary">
+            <button variant="contained" className="glow-on-hover" color="primary">
               REGISTER
-            </Button>
+            </button>
           </Link>
           <Link to="/user-sessions/new">
-            <Button variant="contained" color="primary">
+            <button variant="contained"  className="glow-on-hover" color="primary">
              SIGN IN
-            </Button>
+            </button>
           </Link>
         </p>
       </div>
@@ -105,7 +130,6 @@ const EventShowPage = (props) => {
   }
 
   const sendSMSHandler = async (event) => {
-
     try {
       const response = await fetch("/api/v1/sms", {
         method: "POST",
@@ -128,56 +152,68 @@ const EventShowPage = (props) => {
 
   const showSendSMSLink = () => {
     return (
-      <div>
       <Link to="/events/congratulations">
-        <button type="button" onClick={sendSMSHandler}>
-          Send an SMS
+        <button type="button" className="glow-on-hover" onClick={sendSMSHandler}>
+          SEND AN SMS
         </button>
-      </Link> 
-      
-      </div>
+      </Link>
   )}
+//<Link to="/events">
+//</Link>
+  const eventButton = [
+    <div key="delete-edit">
+      
+        <button className="glow-on-hover" onClick={handleDeleteShowPage}>
+          DELETE
+        </button>
+      
+      <Link to={`/events/${id}/edit`}>
+        <button className="glow-on-hover">EDIT</button>
+      </Link>
+    </div>,
+  ]
+
+  const emptyPtag = [<p key="emptyP"></p>]
 
   const timeOfEvent = (event) => {
-        let time = ""
-          if (event > 12) {
-            return time = (event - 12) + " PM"
-          } else if (event === 12) {
-            return "NOON"
-          } else { 
-            return time = (event) + " AM"
-          }
+    var time = ""
+      if (event > 12) {
+        return time = (event - 12) + " PM"
+      } else if (event === 12) {
+        return "NOON"
+      } else { 
+        return time = (event) + " AM"
       }
+  }
  
 
   return (
-    <div className="event-bg-img-show">
+    <div className="event-bg-img-show neartop">
       <div className="row-container vertical">
         <div>
-          </div>
-          <div>
-            <h3> Your Event Details: </h3>
+          <h3>Your Event:</h3>
             <div className="post-it">      
-            <div className="cute">
-              <h3>{event.title}</h3>
-              <p>Hosted By: {event.hostedBy}</p>
-              <p>Host's Email: {event.hostEmail}</p>
-              <p>Date of the Event: {event.date}</p>
-              <p>Time of the Event: {timeOfEvent(event.time)}</p>
-              <h3>Send a Text: </h3>
-              {showSendSMSLink()}
+              <div className="cute">
+                <h3>{event.title}</h3>
+                <p>Hosted By: {event.hostedBy}</p>
+                <p>Host's Email: {event.hostEmail}</p>
+                <p>Date of the Event: {event.date}</p>
+                <p>Time of the Event: {timeOfEvent(event.time)}</p>
+                  {event.userId === event.currentUserId ? eventButton : emptyPtag}
+                <h3>Send a Text: </h3>
+                  {showSendSMSLink()}
+              </div>
             </div>
-          </div>
         </div>
       </div>
       <div className="row-container horizontal">
         <div  className="row-fit">
-        <h3>Invite Guests:</h3>
+          <h3>Invite Guests:</h3>
           <ErrorList errors={errors} />
-            {loginStatusError}
+          {loginStatusError}
           <GuestForm addGuest={addGuest} userStatus={userStatus} />
-            {getGuests}
-          </div>
+          {getGuests}
+        </div>
       </div>
     </div>
   )

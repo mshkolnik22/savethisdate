@@ -12,7 +12,7 @@ class EventSeeder {
         linkURL: "",
         location: "North Reading",
         date: "2021-02-22",
-        time: "16:00:00",
+        time: "4 PM",
         reminder: "7"
       },
       {
@@ -24,7 +24,7 @@ class EventSeeder {
         linkURL: "",
         location: "North Reading",
         date: "2021-02-28",
-        time: "20:00:00",
+        time: "8 PM",
         reminder: "1"
       },
     ]

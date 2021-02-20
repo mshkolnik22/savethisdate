@@ -8,25 +8,33 @@ html {
   height: 100%;
 }
 
+.textcontrast {
+  color: $navy;
+  font-weight: bold;
+  font-size: 0.9em;
+  border-color: $hot-pink;
+}
 button {
   color: $white;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.9em;
   border-color: $hot-pink;
   background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 170%;
+  background-size: 90%;
   border-radius: 5px;
   padding: 8px 16px;
   margin: 4px 2px;
   border-style: solid;
-  border-width: 2px;
+  border-width: 4px;
   text-shadow: 2px 2px 5px #dd00ff;
-  box-shadow: 2px 2px 5px $hot-pink;
+  
+  border-color: $hot-pink;
+  
 }
 
 .bold {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 
 .button-container {
@@ -36,6 +44,24 @@ button {
   align-items: flex-end;
   padding-left: 10vh;
   padding-right: 1vh;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10vh;
+}
+
+.centertop {
+  display: flex;
+  justify-content: center;
+  //align-items: start;
+}
+
+.neartop {
+  display: flex;
+
+  align-items: start;
 }
 
 .app-header {
@@ -108,6 +134,22 @@ button {
     left: 0;
 }
 
+.bg-eventedit-img {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)),
+  url(../images/nathan.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 100px;
+    left: 0;  
+}
+
 .bg-container {
   display: flex;
   flex-direction: column;
@@ -118,7 +160,6 @@ button {
 
 .carousel {
   display: flex;
-
   padding-top: 30px;
   height: 335px;
   width: auto;
@@ -131,14 +172,18 @@ button {
 
 .carouselcustomize {
   display: flex;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   padding-top: 30px;
   height: 310px;
   width: auto;
   justify-content: center;
-
+  img {
+    border: 5px solid $navy; 
+    height: 300px;
+  }
   img:hover {
-    height: 280px;
+    height: 300px;
+    background: $navy;
+    border: 5px solid $hot-pink; 
   }
 
   a {
@@ -157,7 +202,7 @@ img:hover {
   height: 290px;
   width: auto;
   justify-content: center;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  //box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   border: 5px solid $hot-pink;  
 }
 
