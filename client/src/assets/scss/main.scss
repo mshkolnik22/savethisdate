@@ -6,8 +6,8 @@
 @import "./app.scss";
 @import "./topbar.scss";
 @import "./events.scss";
-
-
+@import "./buttons-labels.scss";
+@import 'react-calendar/dist/Calendar.css';
 
 .menu {
     background-color: $navy;
@@ -23,5 +23,16 @@
 :root {
   -moz-tab-size: 4;
   tab-size: 4;
+}
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  li {
+    color: $navy;
+  }
+  font-size: 0.7em;
+  color: $hot-pink;
+  background:rgba(255, 0, 204, 0.351);
 }
 

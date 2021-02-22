@@ -1,0 +1,177 @@
+.button {
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 8px 16px;
+  margin: 4px 2px;
+  text-shadow: 2px 2px 5px #dd00ff;
+  margin-left: 2em;
+  margin-right: 1em;
+  a {
+    color: $white;
+  } 
+}
+
+
+.calendar {
+  input {
+    color: $hot-pink;
+    min-width: 200px;
+    height: 40px;
+  }
+  abbr {
+    color: $hot-pink;
+  }
+}
+
+padding-column {
+ 
+  margin-left: 0 35;
+}
+
+.glow-on-hover {
+  width: 160px;
+  font-weight: bold;
+  height: 40px;
+  border: 2px;
+  outline: 1px;
+  color: $white;
+  background: $hot-pink;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #4400ff, #ff00ff, #00e1ff, #ff00c8, #7a00ff, #00ff7b, #ff00d4, #2f00ff, #00f7ff, #4400ff,);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  animation: glowing 15s linear infinite;
+  opacity: 0.1;
+  transition: opacity .3s ease-in-out;
+  border-radius: 25px;
+ 
+}
+
+.glow-on-hover:active {
+  color: $navy;
+
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $navy;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.textcontrast {
+  color: $navy;
+  font-weight: bold;
+  font-size: 0.9em;
+  border-color: $hot-pink;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+h3, h4 {
+  color:$white;
+  font-weight: bold;
+}
+
+h1, h3 {
+  color: $white;
+  text-shadow: #0057ee 0 0 3px, #dd00ff 2px 2px 2px;
+ 
+}
+
+h4 {
+  color: $white;
+  text-shadow: #dd00ff 0 0 2px;
+  font-size: 0.9em;
+ }
+
+ .text-signin {
+  color: white; 
+}
+
+.label-input {
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1em;
+  margin: 5px 10px 5px 0;
+  width: 30%;
+}
+
+.label-input-register {
+  color: $white;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 5px 10px 5px 0;
+  width: 300px;
+}
+
+.neartop {
+  display: flex;
+  align-items: start;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.textboxclass {
+  height: 30px;
+  width: 90%;
+}
+
+.ul-style {
+  padding-left: 0;
+  text-align: center;
+  color: $hot-pink;
+  list-style-position: inside;
+ 
+
+  .bg-text {
+    text-align: center;
+    color: $white;
+  }
+  
+  .bg-text-ul {
+    color: $hot-pink;
+  }
+  
+}
