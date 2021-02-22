@@ -88,7 +88,7 @@ const RegistrationForm = () => {
     <div className="center party regform">
       <div onSubmit={onSubmit}>
         <h1>Register</h1>
-        <form>
+        <form autocomplete="off">
           <div>
             <label className="label-input-register">
               Email

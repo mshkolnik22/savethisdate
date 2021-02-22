@@ -98,7 +98,7 @@ const EventEditPage = (props) => {
     <div className="bg-eventedit-img event-list">
     <div>
       <h3>Edit the Details of Your Event:</h3>
-      <form className="form-right" onSubmit={handleSubmit}>
+      <form  autocomplete="off" className="form-right" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
         <label className="label-input" htmlFor="title">
           Event Title:

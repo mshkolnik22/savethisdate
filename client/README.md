@@ -1,7 +1,7 @@
 # Save This Date
 
 ## Description
-My application makes creating events better. With Save This Date you can create any event you wish, add a URL, date and time, and save you the hassle of reminding your guests before the event with your link or location. Your guests can be added and viewed, and the invitation to your event can be sent so that they can Save This Date. You can then view who you invited, and modify the description of your event, if needed.
+My application makes creating events better. With Save This Date you can create any event you wish, add a URL, date and time, and save you the hassle of reminding your guests before the event with your link or location. Your guests can be added, and the invitation to your event can be sent so that they can Save This Date. You can then view who you invited, and modify the description and any other details of your event, if needed.
 
 ## Install Instructions
 
@@ -37,4 +37,4 @@ My application makes creating events better. With Save This Date you can create 
 - Objection
 - Knex
 - PostgreSQL
-- Twillio
+- Twilio

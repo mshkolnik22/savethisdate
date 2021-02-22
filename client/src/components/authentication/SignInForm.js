@@ -67,7 +67,7 @@ const SignInForm = () => {
     <div className="event-bg-img-signin center party regform">
       <div onSubmit={onSubmit}>
         <h1>Sign In</h1>
-          <form>
+          <form autocomplete="off">
             <div className="text-signin">
               <label>
                Email

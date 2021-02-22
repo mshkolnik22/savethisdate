@@ -54,7 +54,7 @@ const EventForm = (props) => {
   return (
     <div>
       <div>
-        <form className="form-right" onSubmit={handleSubmit}>
+        <form  autocomplete="off" className="form-right" onSubmit={handleSubmit}>
           <label className="label-input" htmlFor="title">
             Event Title (*Required):
             <input
