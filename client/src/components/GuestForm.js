@@ -35,7 +35,7 @@ const clearForm = () => {
 return (
   <div className="event-form-guests">
     <div>
-      <form className="form-right" onSubmit={handleSubmit}>
+      <form  autocomplete="off" className="form-right" onSubmit={handleSubmit}>
         <label className="label-input" htmlFor="firstName">
           Guest's First Name:
           <input
