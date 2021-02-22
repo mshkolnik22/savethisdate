@@ -65,35 +65,34 @@ const SignInForm = () => {
 
   return (
     <div className="event-bg-img-signin center party regform">
-    <div onSubmit={onSubmit}>
-      <h1>Sign In</h1>
-      <form>
-        <div className="text-signin">
-          <label>
-            Email
-            <input type="text" placeholder="Email address" name="email" value={userPayload.email} onChange={onInputChange} />
-            <FormError error={errors.email} />
-          </label>
-        </div>
-        <div className="text-signin">
-          <label>
-            Password
-            <input
-             
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={userPayload.password}
-              onChange={onInputChange}
-            />
-            <FormError error={errors.password} />
-          </label>
-        </div>
-        <div>
-          <button className="button glow-on-hover">SIGN IN</button>
-        </div>
-      </form>
-    </div>
+      <div onSubmit={onSubmit}>
+        <h1>Sign In</h1>
+          <form>
+            <div className="text-signin">
+              <label>
+               Email
+              <input type="text" placeholder="Email address" name="email" value={userPayload.email} onChange={onInputChange} />
+                <FormError error={errors.email} />
+              </label>
+            </div>
+            <div className="text-signin">
+              <label>
+                Password
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={userPayload.password}
+                  onChange={onInputChange}
+                />
+                <FormError error={errors.password} />
+              </label>
+            </div>
+          <div>
+            <button className="button glow-on-hover">SIGN IN</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

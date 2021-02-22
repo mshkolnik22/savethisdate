@@ -15,7 +15,6 @@ const EventShowPage = (props) => {
   const { id } = useParams()
   const [errors, setErrors] = useState([])
   const [loginStatus, setLoginStatus] = useState(true)
-  //const eventId = props.match.params.id
 
   const getEvent = async () => {
     try {
@@ -115,12 +114,12 @@ const EventShowPage = (props) => {
         <p>
           <p className="padding">Add a Guest:</p>
           <Link to="/users/new">
-            <button variant="contained" className="glow-on-hover" color="primary">
+            <button variant="contained" className="button glow-on-hover" color="primary">
               REGISTER
             </button>
           </Link>
           <Link to="/user-sessions/new">
-            <button variant="contained"  className="glow-on-hover" color="primary">
+            <button variant="contained"  className="button glow-on-hover" color="primary">
              SIGN IN
             </button>
           </Link>
@@ -153,22 +152,19 @@ const EventShowPage = (props) => {
   const showSendSMSLink = () => {
     return (
       <Link to="/events/congratulations">
-        <button type="button" className="glow-on-hover" onClick={sendSMSHandler}>
+        <button type="button" className="button glow-on-hover" onClick={sendSMSHandler}>
           SEND AN SMS
         </button>
       </Link>
   )}
-//<Link to="/events">
-//</Link>
+
   const eventButton = [
     <div key="delete-edit">
-      
-        <button className="glow-on-hover" onClick={handleDeleteShowPage}>
+        <button className="button glow-on-hover" onClick={handleDeleteShowPage}>
           DELETE
         </button>
-      
       <Link to={`/events/${id}/edit`}>
-        <button className="glow-on-hover">EDIT</button>
+        <button className="button glow-on-hover">EDIT</button>
       </Link>
     </div>,
   ]
@@ -188,10 +184,10 @@ const EventShowPage = (props) => {
  
 
   return (
-    <div className="event-bg-img-show neartop">
+    <div className="event-bg-img-show neartop center">
       <div className="row-container vertical">
         <div>
-          <h3>Your Event:</h3>
+          <h3 className="center">Your Event:</h3>
             <div className="post-it">      
               <div className="cute">
                 <h3>{event.title}</h3>
@@ -207,7 +203,7 @@ const EventShowPage = (props) => {
         </div>
       </div>
       <div className="row-container horizontal">
-        <div  className="row-fit">
+        <div className="row-fit">
           <h3>Invite Guests:</h3>
           <ErrorList errors={errors} />
           {loginStatusError}

@@ -86,45 +86,45 @@ const RegistrationForm = () => {
 
   return (
     <div className="center party regform">
-    <div onSubmit={onSubmit}>
-      <h1>Register</h1>
-      <form>
-        <div>
-          <label>
-            Email
-            <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
-            <FormError error={errors.email} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={userPayload.password}
-              onChange={onInputChange}
-            />
-            <FormError error={errors.password} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password Confirmation
-            <input
-              type="password"
-              name="passwordConfirmation"
-              value={userPayload.passwordConfirmation}
-              onChange={onInputChange}
-            />
-            <FormError error={errors.passwordConfirmation} />
-          </label>
-        </div>
-        <div>
-          <button className="button glow-on-hover">REGISTER</button>
-        </div>
-      </form>
-    </div>
+      <div onSubmit={onSubmit}>
+        <h1>Register</h1>
+        <form>
+          <div>
+            <label className="label-input-register">
+              Email
+              <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
+              <FormError error={errors.email} />
+            </label>
+          </div>
+          <div>
+            <label className="label-input-register">
+              Password
+              <input
+                type="password"
+                name="password"
+                value={userPayload.password}
+                onChange={onInputChange}
+              />
+              <FormError error={errors.password} />
+            </label>
+          </div>
+          <div>
+            <label className="label-input-register">
+              Password Confirmation
+              <input
+                type="password"
+                name="passwordConfirmation"
+                value={userPayload.passwordConfirmation}
+                onChange={onInputChange}
+              />
+              <FormError error={errors.passwordConfirmation} />
+            </label>
+          </div>
+          <div>
+            <button className="button glow-on-hover">REGISTER</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

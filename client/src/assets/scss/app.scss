@@ -6,44 +6,12 @@
 body,
 html {
   height: 100%;
+
 }
 
-.textcontrast {
-  color: $navy;
-  font-weight: bold;
-  font-size: 0.9em;
-  border-color: $hot-pink;
-}
-button {
-  color: $white;
-  font-weight: bold;
-  font-size: 0.9em;
-  border-color: $hot-pink;
-  background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 90%;
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin: 4px 2px;
-  border-style: solid;
-  border-width: 4px;
-  text-shadow: 2px 2px 5px #dd00ff;
-  
-  border-color: $hot-pink;
-  
-}
-
-.bold {
-  font-weight: bold;
-  font-size: 0.9em;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-left: 10vh;
-  padding-right: 1vh;
+.alert {
+  color: $hot-pink;
+  background:rgba(255, 0, 204, 0.351);
 }
 
 .horizontal {
@@ -52,25 +20,9 @@ button {
   padding-left: 10vh;
 }
 
-.centertop {
-  display: flex;
-  justify-content: center;
-  //align-items: start;
-}
-
-.neartop {
-  display: flex;
-
-  align-items: start;
-}
-
-.app-header {
-  text-shadow: #00ee87 0 0 5px, #dd00ff 3px 3px 3px;
-}
-
 .bg-img {
-  background: linear-gradient(#031042c1, rgba(255, 0, 204, 0.351)), 
-    url(../images/balloons.jpg);
+  background: linear-gradient(#031042f5, rgba(255, 0, 204, 0.351)), 
+    url(../images/balloons.png);
   background-size: cover;
   //position: relative;
   width: 100%;
@@ -103,7 +55,7 @@ button {
       border: 5px solid $navy; 
       height: 130px;
     }
-    
+  
     img:hover {
       display: flex;
       height: 130px;
@@ -118,9 +70,6 @@ button {
   display: flex;
   padding-left: 30px;
   flex-direction: column;
-  h2, h3 {
-    font-size: 1em;
-  }
   background: linear-gradient(#031042, rgba(255, 0, 204, 0.351)),
   url(../images/night.jpg);
     background-repeat: no-repeat;
@@ -148,12 +97,15 @@ button {
     position: fixed;
     top: 100px;
     left: 0;  
+    padding-left: 30px;
+
 }
 
 .bg-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   min-height: 100vh;
   align-items: top;
 }
@@ -164,10 +116,6 @@ button {
   height: 335px;
   width: auto;
   justify-content: center;
-  a {
-    background: $navy;
-    border: 5px solid $navy; 
-  }
 }
 
 .carouselcustomize {
@@ -176,15 +124,6 @@ button {
   height: 310px;
   width: auto;
   justify-content: center;
-  img {
-    border: 5px solid $navy; 
-    height: 300px;
-  }
-  img:hover {
-    height: 300px;
-    background: $navy;
-    border: 5px solid $hot-pink; 
-  }
 
   a {
     background: $navy;
@@ -192,85 +131,25 @@ button {
   }
 }
 
-img {
-  border: 5px solid $hot-pink; 
+.borderimg {
+  background: $navy;
+  border: 5px solid $navy; 
   height: 300px;
 }
 
-img:hover {
+.borderimg:hover {
   display: flex;
-  height: 290px;
+  height: 300px;
   width: auto;
   justify-content: center;
-  //box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   border: 5px solid $hot-pink;  
 }
 
-.bg-text {
-  text-align: center;
-  color: $white;
+.react-calendar.hide {
+  display: none;
 }
 
-.glow-on-hover {
-  width: 160px;
-  font-weight: bold;
-  height: 40px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: $hot-pink;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
 
-.glow-on-hover:before {
-  content: '';
-  background: linear-gradient(45deg, #4400ff, #ff00ff, #00e1ff, #ff00c8, #7a00ff, #00ff7b, #ff00d4, #2f00ff, #00f7ff, #4400ff,);
-  position: absolute;
-  top: -2px;
-  left:-2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 14px);
-  height: calc(100% + 14px);
-  animation: glowing 15s linear infinite;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  border-radius: 25px;
- 
-}
 
-.glow-on-hover:active {
-  color: $navy;
-}
 
-.glow-on-hover:active:after {
-  background: transparent;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: $navy;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-
-}
-
-@keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
-}
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
-
+import Calendar from 'react-calendar'
 import translateServerErrors from "../services/translateServerErrors.js"
 import ErrorList from "./ErrorList.js"
 
@@ -13,10 +13,16 @@ const EventEditPage = (props) => {
     hostEmail: "",
     linkURL: "",
     location: "",
-    date: "",
     time: "",
     reminder: "",
   })
+  const [dateOfCalendar, setDate] = useState(new Date())
+  const [showCalendar, setShowCalendar] = useState(false);
+  const handleChangeOfDate = value => {
+    setDate(value);
+    setShowCalendar(false);
+  };
+
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [errors, setErrors] = useState({})
 
@@ -52,8 +58,10 @@ const EventEditPage = (props) => {
 
   const editEvent = async () => {
     try {
-     
+      
+      form.date = dateOfCalendar.toLocaleDateString('en-US');
       const response = await fetch(`/api/v1/events/${eventId}`, {
+
         method: "PATCH",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -87,12 +95,12 @@ const EventEditPage = (props) => {
   }
 
   return (
-    <div className="bg-eventedit-img event-list app-header">
+    <div className="bg-eventedit-img event-list">
     <div>
       <h3>Edit the Details of Your Event:</h3>
       <form className="form-right" onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
-        <label htmlFor="title">
+        <label className="label-input" htmlFor="title">
           Event Title:
           <input
             id="title"
@@ -104,7 +112,7 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="description">
+        <label className="label-input" htmlFor="description">
           Event Description:
           <input
             id="description"
@@ -116,7 +124,7 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="hostedBy">
+        <label className="label-input" htmlFor="hostedBy">
           Hosted By:
           <input
             id="hostedBy"
@@ -128,8 +136,8 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="hostEmail">
-          Contact information of the Host:
+        <label className="label-input" htmlFor="hostEmail">
+          Contact Information Host (*Required):
           <input
             id="hostEmail"
             type="text"
@@ -140,7 +148,7 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="linkURL">
+        <label className="label-input" htmlFor="linkURL">
           Virtual Event Link:
           <input
             id="linkURL"
@@ -152,7 +160,7 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="location">
+        <label className="label-input" htmlFor="location">
           Location:
           <input
             id="location"
@@ -164,42 +172,30 @@ const EventEditPage = (props) => {
           />
         </label>
 
-        <label htmlFor="date">
-          Date of the Event:
-          <input
-            id="date"
-            type="text"
-            name="date"
-            placeholder="Date of the Event"
-            onChange={handleChange}
-            value={form.date}
-          />
-        </label>
-
-        <label htmlFor="typeOfEvent">
+        <label className="label-input" htmlFor="typeOfEvent">
          Type of the Event:
          <select
            name="typeOfEvent"
            onChange={handleChange}
            value={form.typeOfEvent}
            >
-             <option value=""> Please select the type of the Event: </option>
-             <option value="1" >Happy Hour</option>
-             <option value="2" >Wedding</option>
-             <option value="3" >Game Night</option>
-             <option value="4" >Theme Party</option>
-             <option value="5" >Housewarming</option>
-             <option value="6" >Farewell/Retirement</option>
-             <option value="7" >Reunion</option>
-             <option value="8" >Birthday</option>
-             <option value="9" >Book Club</option>
-             <option value="10" >Social</option>
-             <option value="11" >Family Gathering</option>
-             <option value="12" >Other</option>
+              <option value=""> Please select the type of the Event: </option>
+              <option value="1" >Birthday</option>
+              <option value="2" >Dinner Party</option>
+              <option value="3" >Game Night</option>
+              <option value="4" >Hike</option>
+              <option value="5" >Housewarming</option>
+              <option value="6" >Meeting</option>
+              <option value="7" >Pool Party</option>
+              <option value="8" >Reunion</option>
+              <option value="9" >Sweet 16</option>
+              <option value="10" >Theme Night</option>
+              <option value="11" >Wedding</option>
+              <option value="12" >Other</option>
            </select>
         </label>
 
-        <label htmlFor="time">
+        <label className="label-input" htmlFor="time">
           Start time of the Event:
            <select
            name="time"
@@ -234,37 +230,49 @@ const EventEditPage = (props) => {
            </select>
         </label>
 
-        <label htmlFor="reminder">
+        <label className="label-input" htmlFor="reminder">
           Reminder:
           <select
            name="reminder"
            onChange={handleChange}
            value={form.reminder}
            >
-             <option value="0" >NONE</option>
+              <option value="" ></option>
              <option value="1" >1 day</option>
              <option value="2" >2 days</option>
              <option value="3" >3 days</option>
-             <option value="5" >5 days</option>
-             <option value="7" >7 days</option>
-             <option value="10" >10 days</option>
-             <option value="14" >14 days</option>
-             <option value="21" >21 days</option>
-             <option value="30" >1 month</option>
-             <option value="60" >2 months</option>
-             <option value="90" >3 months</option>
-             
+             <option value="4" >4 days</option>
+             <option value="5" >7 days</option>
+             <option value="6" >10 days</option>
+             <option value="7" >14 days</option>
+             <option value="8" >21 days</option>
+             <option value="9" >1 month</option>
+             <option value="10" >2 months</option>
+             <option value="11" >NONE</option>  
            </select>
         </label>
        
+        <label className="label-input" htmlFor="date">
+          Date of the Event (*Required):
+        </label>
+          <div className="calendar">
+            <input
+              className="label-input"
+              value={dateOfCalendar.toLocaleDateString('en-US')}
+              onFocus={() => setShowCalendar(true)}
+           />
+          <Calendar
+            className={showCalendar ? "" : "hide"}
+            value={dateOfCalendar}
+            onChange={handleChangeOfDate}
+          />
+         </div>
         <div>
           <button className="button glow-on-hover">SUBMIT</button>
         </div>
       </form>
     </div>
-  </div>
-
-      
+  </div>   
   )
 }
 

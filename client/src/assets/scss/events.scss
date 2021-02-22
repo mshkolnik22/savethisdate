@@ -3,26 +3,19 @@ html {
   height: 100%;
 }
 
-h3, h4, label {
-  color:$white;
-  font-weight: bold;
+ .callout.alert {
+  background: $lightblue;
+  color: $navy;
 }
 
-h1, h3 {
-  color: $white;
-  text-shadow: #0057ee 0 0 3px, #dd00ff 2px 2px 2px, #ff02a2db 3px 0 3px,;
- 
+.alert {
+  color: $hot-pink;
+  background:rgb(83, 1, 67);
 }
-
-h4 {
-  color: $white;
-  text-shadow: #dd00ff 0 0 2px;
-  font-size: 0.9em;
- }
-
 
 .app-header {
-  text-shadow: #0057ee 0 0 3px, #dd00ff 2px 2px 2px;
+  color: $white;
+  text-shadow: $hot-pink 0 0 3px,  lightblue 2px 2px 2px;
 }
 
 .button-container {
@@ -35,21 +28,6 @@ h4 {
   padding-bottom: 2vh;
 }
 
-button {
-  color: $white;
-  font-weight: bold;
-  font-size: 0.8em;
-  border-color: $navy;
-  background: url(../../assets/images/btn2.png) no-repeat;
-  background-size: 110%;
-  border: 4px;
-  outline: 2px;
-  text-shadow: 2px 2px 5px #dd00ff;
-  box-shadow: 2px 2px 5px $hot-pink;
-  border-width: 4px;
-  border-color: $hot-pink;
-}
-
 p {
   color: $white;
   font-size: 1.4em;
@@ -57,6 +35,14 @@ p {
 
 .vertical {
   display: flex;
+  margin: 0 25px;
+}
+
+.vertical-container {
+  display: flex;
+
+  flex-direction:column wrap;
+  align-items: flex-start;
   margin: 0 25px;
 }
 
@@ -105,13 +91,8 @@ p {
   margin: 0 25px;
 }
 
-.textboxclass {
-  height: 30px;
-  width: 90%;
-}
-
 .party {
-  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)), 
+  background: linear-gradient(#031042e8, rgba(255, 0, 204, 0.351)), 
   url(../images/movie.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -124,19 +105,17 @@ p {
   left: 0;
 }
 
-.post-it {
+.center{
   display: flex;
-
-  margin: 0 15px;
-  background: linear-gradient(#031042cb, rgba(255, 0, 204, 0.351));
-  //background-size: 120%;
-  //background-repeat: no-repeat;
-  height: auto;
-  width: auto;
+  justify-content: center;
 }
 
-.center {
+.post-it {
   display: flex;
+  margin: 0 15px;
+  background: linear-gradient(#031042cb, rgba(255, 0, 204, 0.351));
+  height: auto;
+  min-width: 350px;
 }
 
 .row-fit {
@@ -154,7 +133,6 @@ p {
   align-items: start;
   flex-flow: row wrap;
   padding-left: 10vh;
-  
 }
 
 .event-bg-img {
@@ -190,7 +168,7 @@ p {
 }
 
 .event-bg-img-signin {
-  background: linear-gradient(#03104276, rgba(255, 0, 204, 0.351)), 
+  background: linear-gradient(#031042e1, rgba(255, 0, 204, 0.351)), 
   url(../images/florian.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -201,14 +179,10 @@ p {
   position: fixed;
   top: 100px;
   left: 0;
-}
-
-.text-signin {
-  color: white; 
-}
-
-.label {
-  color: $white;
+  label {
+    color: $white;
+    font-size: 1.2em;
+  }
 }
 
 .form {
@@ -243,12 +217,7 @@ p {
   flex-flow: row wrap;
   align-items: center;
   align-items: flex-end;
-  label {
-    margin: 5px 10px 5px 0;
-    width: 30%;
-  }
   margin: 0 25px;
-
 }
 
 .single-event {
@@ -336,7 +305,10 @@ p {
     left: 1em;
     color: $white;
   }
-
 }
+  .react-calendar.hide {
+    display: none;
+  }
+
 
 

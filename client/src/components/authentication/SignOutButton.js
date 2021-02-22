@@ -29,7 +29,7 @@ const SignOutButton = () => {
   }
 
   return (
-      <button type="button" className="glow-on-hover" onClick={signOut}>
+      <button type="button" className="button glow-on-hover" onClick={signOut}>
         SIGN OUT
       </button>
   );

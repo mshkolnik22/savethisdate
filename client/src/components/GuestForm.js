@@ -36,7 +36,7 @@ return (
   <div className="event-form-guests">
     <div>
       <form className="form-right" onSubmit={handleSubmit}>
-        <label htmlFor="firstName">
+        <label className="label-input" htmlFor="firstName">
           Guest's First Name:
           <input
             id="firstName"
@@ -48,7 +48,7 @@ return (
           />
         </label>
 
-        <label htmlFor="lastName">
+        <label className="label-input" htmlFor="lastName">
           Guest's Last Name:
           <input
             id="lastName"
@@ -60,7 +60,7 @@ return (
           />
         </label>
 
-        <label htmlFor="email">
+        <label className="label-input" htmlFor="email">
           Email:
           <input
             id="email"
@@ -72,7 +72,7 @@ return (
           />
         </label>
 
-        <label htmlFor="phone">
+        <label className="label-input" htmlFor="phone">
           Phone:
           <input
             id="phone"
@@ -84,7 +84,7 @@ return (
           />
         </label>
 
-        <label htmlFor="rsvp">
+        <label className="label-input" htmlFor="rsvp">
           RSVP status:
           <input
             id="rsvp"

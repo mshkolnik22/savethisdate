@@ -7,14 +7,14 @@ const TopBar = ({ user }) => {
   const unauthenticatedListItems = [
     <div key="sign-in" className="horizontal button-container">
     <div>
-      <button className="glow-on-hover" variant="contained" color="primary">
+      <button className="button glow-on-hover" variant="contained" color="primary">
         <Link to="/user-sessions/new">
           SIGN IN
         </Link>
       </button>
     </div>,
     <div key="sign-up">
-      <button className="glow-on-hover" variant="contained" color="primary">
+      <button className="button glow-on-hover" variant="contained" color="primary">
         <Link to="/users/new">
           SIGN UP
         </Link>
@@ -33,17 +33,17 @@ const TopBar = ({ user }) => {
   return (
     <div className="top-bar">
       <div className="top-bar-left">
-        <button className="glow-on-hover" variant="contained" color="primary">
+        <button className="button glow-on-hover" variant="contained" color="primary">
           <Link to="/">
             SAVE THIS DATE
           </Link>
         </button>
-        <button className="glow-on-hover" variant="contained" color="primary">
+        <button className="button glow-on-hover" variant="contained" color="primary">
           <Link to="/events">
             EVENTS
           </Link>
         </button>
-        <button className="glow-on-hover" variant="contained" color="primary">
+        <button className="button glow-on-hover" variant="contained" color="primary">
           <Link to="/invites">
             CUSTOMIZE
           </Link>
