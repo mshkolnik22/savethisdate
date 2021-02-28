@@ -4,6 +4,9 @@ import EventForm from "./EventForm"
 import ErrorList from "./ErrorList"
 import translateServerErrors from "../services/translateServerErrors"
 
+import arrowDown from "../assets/images/down-button-pink.png";
+import arrowUp from "../assets/images/up-rounded-pink.png";
+
 const EventsPage = (props) => {
   const [events, setEvents] = useState([])
   const [errors, setErrors] = useState([])
@@ -76,7 +79,9 @@ const EventsPage = (props) => {
       <div className="events-and-form">
         <div className="events-left tile-list">
           <h1>Your events:</h1>
+          <a href="/events"><img className="arrow" src={arrowDown} /></a>
           <ul >{eventListItems}</ul>
+          <a href="/events"><img className="arrow" src={arrowUp} /></a>
         </div>
         <div className="form-right">
          <h1>Add New event:</h1>
