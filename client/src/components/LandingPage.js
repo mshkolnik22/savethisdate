@@ -6,11 +6,7 @@ import Image2 from "../assets/images/movienight.jpg";
 import Image3 from "../assets/images/sweet16.jpg";
 import Image4 from "../assets/images/hiking.jpg";
 import Image5 from "../assets/images/discordnight.jpg";
-// import Image1b from "../assets/images/birthday-b.jpg";
-// import Image2b from "../assets/images/movienight-b.jpg";
-// import Image3b from "../assets/images/sweet16-b.jpg";
-// import Image4b from "../assets/images/hiking-b.jpg";
-// import Image5b from "../assets/images/discordnight-b.jpg";
+
 const LandingPage = props => {
 
 return (
