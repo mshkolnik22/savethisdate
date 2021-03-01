@@ -13,7 +13,7 @@ import EventsPage from "./EventsPage"
 import EventEditPage from "./EventEditPage"
 import InvitesPage from "./InvitesPage"
 import Congratulations from "./Congratulations"
-
+import ScrollArrow from "./ScrollArrow"
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined)
